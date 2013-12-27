@@ -1,0 +1,3493 @@
+\documentclass[8pt]{report}
+\usepackage{multicol}
+\usepackage{units}
+\usepackage{hyperref}
+\usepackage{makeidx}
+\usepackage[T1]{fontenc}
+%\usepackage[light,math]{iwona}
+\makeindex
+
+\newcommand{\ingredmargin}{0.25cm}
+
+\newcommand{\F}{$^\circ$F}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\HLine}{\rule{\linewidth}{0.1mm}}
+\newcommand{\recipegroup}[2]{\chapter*{#1} \addcontentsline{toc}{chapter}{#1} \label{chap:#1} \vspace{4cm} {#2} \newpage}
+
+% \begin{minipage}{0.5\textwidth} \begin{flushleft} {\Large \textsf{#1}} \end{flushleft} \end{minipage}
+%  \begin{minipage}{0.49\textwidth} \begin{flushright} \emph{#2} \end{flushright} \end{minipage} \\ \HLine}
+\newcommand{\fr}[2]{\nicefrac{#1}{#2}}
+\newcommand{\reciperef}[1]{{\bf #1, page~\pageref{rec:#1}}}
+\newcommand{\recipereff}[2]{{\bf #1 #2, page~\pageref{rec:#1}}}
+\newcommand{\reciperefnm}[2]{{\bf #2, page~\pageref{rec:#1}}}
+
+\newenvironment{recipe}[3]
+  {\bigskip \bigskip 
+\begin{tabular*}{0.95\textwidth}{|p{0.915\textwidth}|} \hline \vspace{0.25mm}
+\begin{minipage}{0.7\textwidth}	\begin{flushleft} {\Large \textsf{#1}} \end{flushleft} \end{minipage}
+\begin{minipage}{0.2\textwidth} \begin{flushright} \emph{#2} \end{flushright} \end{minipage} \\ \\ \hline
+\begin{ingreds}{#3} \addcontentsline{toc}{section}{#1} \phantomsection \label{rec:#1}} 
+  {\\ \hline \end{tabular*} \noindent}
+  
+\newenvironment{creditrecipe}[4]
+  {\bigskip \bigskip 
+\begin{tabular*}{0.95\textwidth}{|p{0.915\textwidth}|} \hline \vspace{0.25mm}
+\begin{minipage}{0.7\textwidth}	\begin{flushleft} {\Large \textsf{#1} (#4)} \end{flushleft} \end{minipage}
+\begin{minipage}{0.2\textwidth} \begin{flushright} \emph{#2} \end{flushright} \end{minipage} \\ \\ \hline
+\begin{ingreds}{#3} \addcontentsline{toc}{section}{#1} \phantomsection \label{rec:#1}} 
+  {\\ \hline \end{tabular*} \noindent}
+
+\newenvironment{ingreds}[1]
+  {\begin{tabular}{lrlp{0.6\textwidth}} \hspace{\ingredmargin} & \multicolumn{3}{l}{\it #1:} \\}
+  {\end{tabular} \medskip}
+  
+\newcommand{\ingredsdone}{\end{ingreds}\begin{enumerate}}  
+\newcommand{\stepsdone}{\end{enumerate} \medskip}
+\newcommand{\notefont}{\renewcommand*\rmdefault{pzc}\normalfont\upshape \large}
+%\newcommand{\normalfont}{\renewcommand*\rmdefault{ppl}\normalfont\upshape}
+\newcommand{\ingredient}[3]{\hspace{\ingredmargin} & #1 & #2 & #3 \\}
+\newcommand{\tip}{$\Rightarrow$}
+
+\begin{document}
+\small
+
+\renewcommand*\rmdefault{ppl}\normalfont\upshape
+\pagenumbering{roman}
+\input {./cookbook_title.tex}
+\newpage
+
+\addcontentsline{toc}{chapter}{Reference tables}
+
+
+\begin{itemize}
+\item 1 gal = 4 qts.  1 qt = 2 pts.  1 pt = 2 c.  1 c = 16 T.  1 T = 3 t.
+\item 1 lb. = 16 oz.
+\end{itemize}
+
+\begin{center}
+\begin{tabular}{|l|ccccc|} \hline
+& R & MR & M & MW & WD \\ \hline
+{\bf Beef / steak} & 120-125\F & 130-135\F & 140-145\F & 150-155\F & 160+\F \\
+{\bf Hamburger} & 140-145\F & 150\F & 155\F & 160\F & 165\F \\
+\textbf{Lamb} & & 140-145\F & 150\F & 155\F & 160+\F \\
+\textbf{Pork} & & & 140\F & & 160\F \\ \hline
+\textbf{Turkey / chicken} & \multicolumn{5}{c|}{160\F, until juices run clear}\\
+\textbf{Fish} & \multicolumn{5}{c|}{140\F, except for fish cooked rare like tuna, then 125\F} \\ \hline
+\end{tabular}
+
+\textbf{Table of doneness temperatures}
+
+\vspace{1cm}
+
+\begin{tabular}{|l|cccccc|} \hline
+\textbf{1} & \textbf{\fr14} & \textbf{\fr13} & \textbf{\fr12} 
+		& \textbf{1 \fr12} & \textbf{2} & \textbf{2 \fr12} \\
+\hline
+\textbf{1 c} & \fr14 c & \fr13 c & \fr12 c & 1 \fr12 c & 2 c & 2 \fr12 c \\
+\textbf{\fr34 c} & 3 T & \fr14 c & 6 T & 1 c + 2 T & 1 \fr12 c & 1 \fr34 c + 2 T \\
+\textbf{\fr23 c} & 2 T + 2 t & $\approx$ 3 T + 2 t & \fr13 c & 1 c & 1 \fr13 c & 1 \fr23 c \\
+\textbf{\fr12 c} & 2 T & 2 T + 2 t & \fr14 c & \fr34 c & 1 c & 1 \fr14 c \\
+\textbf{\fr13 c} & 1 T + 1 t & $\approx$ 2 T + 2 \fr12 t & 2 T + 2 t & \fr12 c & \fr23 c & (\fr12 + \fr13) c \\
+\textbf{\fr14 c} & 1 T & 1 T + 1 t & 2 T & 6 T & \fr12 c & \fr12 c + 2 T \\
+\textbf{1 T} & \fr34 t & 1 t & 1 \fr12 t & 4 \fr12 t & 2 T & 2 T + 1 \fr12 t \\
+\textbf{1 lb} & 4 oz & 5 \fr13 oz & 8 oz & 24 oz & 2 lbs & 40 oz \\
+\hline
+
+\end{tabular}
+
+\textbf{Table of ratios}
+
+\vspace{1cm}
+
+\begin{tabular}{|l|ll|} \hline
+Item & weight each & volume each \\ \hline
+med. potato & 6 oz. & \fr34 c \\
+\hline
+\end{tabular}
+
+\textbf{Table of volumes and weights}
+
+\end{center}
+
+\tableofcontents
+\addcontentsline{toc}{chapter}{Contents}
+
+ \chapter*{Foreword}
+\addcontentsline{toc}{chapter}{Foreword}
+\subsection*{Moses Liskov}
+
+
+I have on my kitchen shelf a home-made book called ``My Favorite Recipes (Taste Tested by Nathan Liskov)'' by Barbara Liskov, my mother.  It is imperfect but has been an extremely useful book to have around.  It contains recipes for most of the dishes I was served by my parents growing up, from how to cook broccoli to thanksgiving turkey and complicated desserts.  Now that I am married and have a family of my own, I thought I would build on the ``blue book'', and make a version that is not just for those of us in the know, as it were, but also a book worth sharing with others.
+
+This is different from most cookbooks you would find in a store.  For one thing, there is absolutely no emphasis on originality.  There is a recipe in this book for steamed asparagus, which contains little more instruction than to steam asparagus and serve with butter, salt, and pepper.  This is not an interesting or exciting way to cook asparagus.  This is the way to cook asparagus when you are making dinner for your family and have some asparagus and want something easy to master and good with just about any dinner.  Ninety-five percent of the time a dish is cooked by me or by my mother, it is somewhere in this book, because this book contains the recipes we use every day.
+
+The cuisines represented in this book are primarily Italian, French, Jewish, Chinese, Mexican, or Japanese in origin.  There are a couple of recipes from other cultures but these are the ones we feel most comfortable cooking with on a daily basis.  My lineage is Jewish, mainly Eastern European although my father's mother Gertie was British.  My wife Melissa is Chinese-Filipina, and most of the asian recipes are from her side of the family.
+
+In the ingredients for each recipe, I have bolded all the items that I don't consider ingredients one ought to expect to be on hand in any reasonable kitchen.  This includes all fresh produce that needs refrigeration except carrots and celery.  Ingredients marked with an asterisk are optional.  
+
+The main body of the book contains fully-detailed recipes including discussion, techniques, etc.  It is arranged in chapters focusing on types of dishes: a chapter on desserts, a chapter on breakfast foods, et cetera.  Near the back of the book is a condensed version of all the recipes, in alphabetical order, for fast reference.  
+
+\bigskip
+This book is dedicated to my family.
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% Main body: start numbering pages at 1.  
+\newpage
+\pagenumbering{arabic}
+\recipegroup{Breakfast}{\notefont 
+I don't know why but the breakfasts I ate as a child stayed with me in a way second only to desserts.
+
+During the week our breakfasts are nothing special, but on the weekend we tend to enjoy fancier stuff.  It tends to make our weekend mornings a bit lazy but then, isn't that the point of a weekend?  
+}
+
+
+%\recipename{French toast}{15 min.}
+\begin{recipe}{Biscuits}{}{??}
+\ingredient{some}{}{flour, etc.}
+\ingredsdone
+\item Make biscuits
+\stepsdone
+We traditionally serve with \recipereff{Slow-cooked scrambled eggs}{with bacon}.
+\end{recipe}
+
+\begin{recipe}{French toast}{15 min.}{per person}
+\index{breakfast!french toast} \index{french toast} 
+\ingredient{1}{}{large egg}
+\ingredient{2}{}{slices bread}
+\ingredient{\fr12}{c}{milk}
+\ingredient{}{}{cinnamon, to taste}
+\ingredsdone 
+\item Beat egg with milk and cinnamon and put in square or rectangular baking dish.
+\item Soak bread in egg mixture for 1-2 minutes, until nicely saturated and softened.
+\item Cook in a skillet with a little oil or butter over medium-low heat, {\bf about 4 minutes on each side}, until golden brown.
+\item Serve immediately, with maple syrup or powdered sugar.
+\stepsdone
+\noindent \tip You can use any sort of bread for this but it works better with sweet, soft bread like raisin toast, plain white bread, hallah, et cetera.  \medskip
+
+\noindent \tip Very dense bread will need to soak longer.  Don't oversoak or the bread may fall apart.  \medskip
+
+\noindent \tip You can spoon any remaining egg mixture over the bread when it first goes in the pan.
+
+\end{recipe}
+
+\begin{recipe}{German pancakes}{30-35 min.}{for two}
+\index{breakfast!german pancakes} \index{german pancakes}
+\index{pancakes!german}
+\ingredient{\fr13}{c}{flour (scant)}
+\ingredient{\fr14}{c}{powdered sugar}
+\ingredient{\fr13}{tsp}{salt}
+\ingredient{1}{T}{corn starch}
+\ingredient{2}{}{eggs}
+\ingredient{1}{c}{milk}
+\ingredient{\fr12}{tsp}{vanilla}
+\ingredient{}{}{butter or oil}
+\ingredient{}{}{\bf berries and/or banana}
+\ingredsdone
+\item Heat oven to {\bf 400\F}.  Grease skillets or baking pans with melted butter or oil.  Use a 9-inch skillet for each person, or equivalent in total area.  
+\item Mix flour, powdered sugar, corn starch, and salt.  
+\item Beat eggs into flour mixture, one at a time.  Once combined, mix in milk and vanilla.
+\item Pour into skillet or baking pan and bake for {\bf 17 minutes}.
+\stepsdone
+\noindent \tip Sometimes a spritz of lemon juice can be nice, especially when there are no berries to use. \medskip
+
+{\notefont This was and is a very frequently-used recipe for leisurely weekend breakfasts.
+According to Barbara, she and Nate first had this at an IHOP and asked for the recipe, but it was written to serve
+dozens of people.  That formed the basis for her experimentation and this recipe is the result.}
+\end{recipe}
+
+\begin{recipe}{Hash browns}{15 min.}{per person}
+\index{breakfast!hash browns} \index{hash browns} \index{potatoes!hash browns}
+\ingredient{1}{}{leftover medium potato, cooked}
+\ingredient{1}{T}{olive oil}
+\ingredsdone
+\item Heat pan with olive oil over medium to medium-high heat.
+\item Grate potato(es) into pan.  Spread out and sprinkle with salt.  
+\item Fry until nicely browned, then turn and add more oil.  Fry until browned on the other side, then serve.
+\stepsdone
+\noindent \tip If you don't have leftover potatoes, you can make some by microwaving the potatoes for about 8 minutes the night before.
+You can do this before making your hash browns but it'll be more difficult to grate the potato while it is so hot.  
+\end{recipe}
+
+\begin{recipe}{Matzo brei}{15 min.}{per person}
+\index{breakfast!matzo brei} \index{matzo!matzo brei}
+\ingredient{1}{}{egg}
+\ingredient{\fr34 - 1}{}{matzo}
+\ingredsdone
+\item Soften matzo by running hot water over it or soaking.  Matzo should retain crispness at the center.
+\item Beat egg with a little water, salt, and pepper to taste.  Break softened matzo into small pieces and mix into egg.
+\item Cook in a skillet in oil (with a little butter if desired) on low-medium heat until done on one side, turn and finish
+\stepsdone
+\noindent
+{\notefont I've never heard of this recipe outside of our family.  It's meant to be a passover thing, clearly, but it's perfectly nice
+any time.  Matzo is perfect in this, since it has a neutral, wheat-y flavor, and is very crisp so you can get a nice texture
+but still get the egg penetrating the pieces of matzo.}
+\end{recipe}
+
+\begin{recipe}{Matzo meal pancakes}{90 minutes}{for 2-3 people}
+\index{breakfast!matzo meal pancakes} \index{matzo!meal pancakes}
+\index{pancakes!matzo meal pancakes}
+\ingredient{\fr34}{c}{matzo meal}
+\ingredient{3}{}{eggs, separated}
+\ingredient{\fr12}{c}{water}
+\ingredient{3}{T}{sugar}
+\ingredsdone
+\item Combine matzo meal, egg yolks, and water with salt.  
+\item Let sit at least {\bf 1 hour}, overnight is fine.  
+\item Beat egg whites with a little salt until they form soft peaks.  Fold in sugar and beat until peaks become stiff.
+Fold beaten egg whites into matzo meal mixture.
+\item Cook in a skillet on medium-low heat, in small cakes.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Poached eggs}{15-20 min.}{per person}
+\index{breakfast!poached eggs} \index{eggs!poached}
+\ingredient{1-2}{}{eggs, ideally very fresh}
+\ingredient{2-3}{}{English muffin halves or slices of bread}
+\ingredsdone
+\item Boil a pot of salted water, at least 3 inches deep, big enough to contain all the eggs you are cooking.
+\item While the water is boiling, toast bread or English muffins and butter if desired.  Put on plates before the eggs are cooked.
+\item Once the water boils, turn the heat down very low.  When bubbles no longer form on the bottom of the pan, crack the eggs into
+the water and cook for {\bf 3 minutes} for runny yolks, or longer for firmer yolks.  
+\item When it is time, carefully place each egg on top of a piece of toast or English muffin, one at a time.
+\stepsdone
+\noindent \tip If you are trying
+to poach more than about 4-5 eggs at once, it's worth cracking the eggs into a dish and then adding the eggs to the pot from the
+dish, so you don't have to keep track of which one was added first. \medskip
+
+\noindent {\notefont Moses: I prefer to stir the water in a circular pattern a few times before putting in the eggs; this helps keep the
+whites from spreading out all over the place.  Barbara uses a spoon to try to keep each egg's whites contained.}
+\end{recipe}
+
+\begin{recipe}{Puff pancakes}{1 hour}{for 4}
+\index{breakfast!puff pancakes} \index{puff pancakes}
+\index{pancakes!puff}
+\ingredient{4}{}{egg yolks}
+\ingredient{4-6}{}{egg whites}
+\ingredient{3-4}{T}{sugar}
+\ingredient{\fr12}{tsp}{vanilla}
+\ingredsdone
+\item Beat egg yolks with 2 T sugar until very light.  Expect this to take a long time, perhaps {\bf 10 minutes}.  Add vanilla.
+\item Beat egg whites with a little salt until they form soft peaks.  Add 1-2 T sugar and beat until stiff.
+\item Fold whites into egg yolk mixture.
+\item Cook in a skillet on medium-low heat, in small cakes.
+\stepsdone
+\noindent {\notefont This is not a recipe we make very often.  However, Nate agitates for it frequently.  Really, this isn't so 
+much a breakfast dish as it is a dessert.  These pancakes are really surprising: very light, and they have an amazingly
+complex taste for such a simple ingredients list, somewhere between caramel and custard.}
+\end{recipe}
+
+
+\begin{recipe}{Slow-cooked scrambled eggs}{30 min}{per person}
+\index{breakfast!scrambled eggs} \index{scrambled eggs}
+\index{eggs!scrambled}
+\ingredient{2}{}{eggs}
+\ingredient{1-2}{T}{milk}
+\ingredient{}{}{\bf chopped bacon or ham*}
+\ingredsdone
+\item Beat eggs with milk, salt, and pepper, until they lighten.  
+\item Melt a little butter in a frying pan over medium-low heat.  When it melts, turn heat down to low and add egg mixture.
+\item Stir constantly until eggs mostly solidify.  If the eggs start to cook immediately, the pan is too hot; it should take 
+about 5 minutes before you notice much solidification of eggs while you stir.  
+\item If using, add bacon or ham for last couple minutes of cooking.  
+\stepsdone
+\noindent {\notefont Be patient!  Eggs cooked this way are a lot more trouble than scrambling over high heat, but they get a wonderfully
+rich flavor you don't get any other way.}
+\end{recipe}
+
+\recipegroup{Appetizers and Salads}{\notefont Growing up, salad was a nearly constant fixture of our dinner table.  I think this is partly because I was more willing to eat salads as a child than cooked vegetables.  If only my daughter felt the same way!
+
+Our normal dinner salads consist of mainly lettuce with thin slices of {\bf anise}, and sometimes {\bf avocado}.  We occasionally use cucumber, radish, bell pepper, or cherry tomatoes.  
+}
+
+
+\begin{recipe}{Balsamic vinaigrette}{$<$ 5 min.}{serves 3}
+\index{salad!dressing} 
+\index{vinaigrette!balsamic} 
+\ingredient{1}{T}{balsamic vinegar}
+\ingredient{3}{T}{olive oil}
+\ingredient{}{}{salt and pepper}
+\end{ingreds} 
+\noindent {\notefont I like this salad dressing a lot less than \reciperef{Lemon juice dressing} but it's my mother's favorite.  One advantage of it is that you can make up batches in jars and use in small quantities.  Her bring-to-work lunch for years was a lettuce salad with Balsamic vinaigrette over cottage cheese.}
+\end{recipe}
+
+\begin{recipe}{Bruschetta}{20 min}{per person (as a main course)}
+\index{appetizers!bruschetta} \index{bruschetta}
+\index{tomatoes!bruschetta}
+\ingredient{2-3}{}{large slices bread}
+\ingredient{1-2}{}{\bf medium tomatoes}
+\ingredient{1}{clove}{garlic, peeled}
+\ingredient{}{}{best-quality extra virgin olive oil}
+\ingredient{}{}{salt, pepper}
+\ingredient{6}{leaves}{\bf basil}
+\ingredsdone
+\item Lightly toast dense bread.  Rub with the peeled garlic clove and dizzle with olive oil.
+\item Slice tomatoes to cover the bread, season with salt and pepper.
+\item Top with chiffonade (thin-sliced ribbons) of basil.
+\stepsdone
+\noindent It it traditional in our family to serve this dish with slices of fresh mozzarella, drizzled with
+salt and pepper.  We sometimes also include black cured olives.  
+
+\medskip \noindent \tip In winter when tomatoes aren't as good, use diced plum tomatoes marinated in olive oil, salt,
+and pepper.
+
+\medskip \noindent \tip To make a good appetizer, make 1-inch strips of toast and proceed as above, but dice
+the tomatoes so they fit nicely.
+
+\medskip \noindent {\notefont We discovered bruschetta on a trip to Italy in the late 80s, before it became 
+a popular appetizer in the states.  It became a favorite as soon as we found good sources of fresh mozzarella
+and quality bread.  }
+\end{recipe}
+
+\begin{recipe}{Celeriac salad}{(in advance)}{serves 12}
+\index{appetizers!celeriac salad} \index{celeriac salad} \index{celery root salad}
+\index{salad!celeriac} \index{thanksgiving!celeriac salad}
+\ingredient{2}{}{\bf large celeriac}
+\ingredient{1}{bunch}{parsley, fine chopped}
+\ingredient{10}{T}{olive oil}
+\ingredient{3}{T}{white wine vinegar}
+\ingredient{1}{tsp}{tarragon}
+\ingredient{1}{T}{dijon mustard}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Peel and clean two large celeriac.  Cut into chunks and use food processor to grate into thin strips.
+\item Mix celeriac with chopped parsley.
+\item Make the tarragon-mustard vinaigrette:
+\begin{enumerate}
+\item Combine mustard with vinegar, tarragon, salt, and pepper.
+\item Add olive very slowly while whisking to keep emulsified.
+\item Adjust seasoning.  The dressing on its own should taste quite salty.
+\end{enumerate}
+\item Dress the celeriac and parsley, let sit in the refrigerator for at least 6 hours; overnight is preferable.
+\stepsdone
+\noindent \tip This can keep nicely for many days, in fact, the flavor of the dressing soaks in better.
+
+\medskip \noindent \tip If available, use tarragon white wine vinegar in place of the vinegar and separate tarragon.  
+
+\medskip \noindent {\notefont This is our traditional first course at Thanksgiving; we serve it on a leaf of lettuce with cherry tomato and/or red pepper garnish.}
+\end{recipe}
+
+\begin{recipe}{Cucumber salad, creamy}{(in advance)}{serves 4?}
+\index{appetizers!cucumber salad, creamy} \index{cucumbers!salad, creamy}
+\index{salad!cucumber, creamy}
+\ingredient{1}{lb}{{\bf cucumbers}, peeled and thinly sliced}
+\ingredient{4}{T}{sour cream}
+\ingredient{}{}{{\bf dill or chives}, chopped}
+\ingredient{?}{?}{white wine vinegar}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Salt the cucumber and press for several hours under a paper towel with a weighted plate on top.
+\item Discard the juice.  Mix with sour cream, dill or chives, vinegar, and salt and pepper to taste.
+\stepsdone
+***MISSING INFO: How much vinegar?  Yield?  What's the story with this, we never really had it much that I remember.  
+\end{recipe}
+ 
+\begin{recipe}{Flat salad}{15 min.}{serves 2-3}
+\index{appetizers!flat salad} \index{flat salad} \index{salad!flat}
+\index{cucumbers!flat salad} \index{tomatoes!flat salad} \index{avocado!flat salad}
+\ingredient{2-3}{}{\bf fresh cucumbers}
+\ingredient{2-3}{}{\bf fresh tomatoes}
+\ingredient{1}{}{\bf avocado*}
+\ingredient{6}{T}{olive oil}
+\ingredient{1}{}{lemon}
+\ingredient{}{}{salt and pepper}
+\ingredient{}{}{\bf basil or parsley*}
+\ingredsdone
+\item Slice the tomatoes about \fr14 to \fr38 inches thick, arrange on platter.
+\item Slice the cucumbers thin (about \fr18 inch), arrange with the tomatoes.
+\item Slice the avocado and arrange with the tomatoes.
+\item Can sprinkle with chopped parsley or chiffonade of basil.
+\item Dress with olive oil and juice of the lemon.
+\item Let marinate for {\bf 10 minutes}, spooning dressing over the vegetables several times.
+\stepsdone
+\noindent {\notefont There's a point in the summer, when the tomatoes are coming in and the garden lettuce is
+mostly over, that we used to switch from having tossed salad to flat salad.  That's when you really know it's
+summer.
+
+\medskip \noindent
+There's a family story about Erica, who was my babysitter / nanny for most of my early childhood.  My parents had
+invited her to dinner to get to know her before they hired her (before I was born).  They served flat salad,
+and according to the story, she drank the dressing off her plate when the salad was gone.  From this, my parents
+knew right away she was their kind of person, and indeed she has been a good friend of ours ever since.}
+\end{recipe}
+
+\begin{recipe}{Guacamole}{5 min.}{serves 3}
+\index{appetizers!guacamole} \index{guacamole} \index{avocado!guacamole}
+\ingredient{1}{}{\bf avocado, ripe}
+\ingredient{\fr12}{}{\bf sm. tomato, diced}
+\ingredient{1}{}{pickled jalapeno, seeded and minced, plus juice}
+\ingredient{\fr12}{}{garlic clove*}
+\ingredient{}{}{salt and pepper}
+\ingredient{\fr12}{}{lemon}
+\ingredsdone
+\item If using, put garlic through a garlic press.
+\item Combine peeled, pitted avocado with jalapeno, tomato and garlic, and mash with a fork until there are no large chunks remaining.
+\item Stir in lemon juice and pickling liquid (about \fr12 t).
+\item Add salt and pepper to taste.  Can adjust heat level by adding more minced jalapeno.  Serve with tortilla chips.
+\stepsdone
+\noindent \tip This is our favorite way to prepare guacamole but there is a simpler version I also like to make.  I consider the
+tomato optional, and replace the jalapeno and juice with a little bit of concentrated hot sauce.  
+%This allows me to avoid working
+%with jalapenos directly, and it is easy to add heat without more fine chopping.  
+%
+%\medskip \noindent \tip If available, goes nicely with kernels of corn roasted on the grill.  
+\end{recipe}
+
+\begin{recipe}{Lemon juice dressing}{$<$ 5 min.}{serves 3}
+\index{salad!dressing} \index{lemon!lemon juice dressing}
+\index{vinaigrette!lemon}
+\ingredient{\fr12}{}{lemon (juice of)}
+\ingredient{3}{T}{olive oil}
+\ingredient{}{}{salt and pepper}
+\end{ingreds} 
+\noindent {\notefont This is the salad dressing I would choose for a home-made green
+salad almost every time.  Don't take the shortcut - squeeze juice directly from a fresh lemon.}
+\end{recipe}
+
+\begin{creditrecipe}{Mushrooms on toast}{20 min.}{serves 6 as an appetizer}{Plat du jour}
+\index{appetizers!mushrooms on toast}
+\index{mushrooms!on toast}
+\ingredient{1}{lb}{\bf mushroom caps, sliced}
+\ingredient{\fr13}{bunch}{\bf parsley, chopped}
+\ingredient{2}{c}{\bf light cream}
+\ingredient{}{}{lemon juice}
+\ingredient{}{}{olive oil}
+\ingredient{}{}{salt and pepper}
+\ingredient{}{}{quality bread}
+\ingredsdone
+\item Saute mushrooms in olive oil until they release their juice.
+\item Add parsley, salt, pepper, and cream.  Reduce heat to medium and cook until cream thickens.
+\item Add a squeeze of lemon juice and serve on slices of toasted bread.
+\end{enumerate}
+\end{creditrecipe}
+
+
+\begin{recipe}{Mustard vinaigrette}{$<$ 5 min.}{serves 3}
+\index{mustard vinaigrette} \index{vinaigrette!mustard}
+\ingredient{\fr13}{t}{dijon mustard}
+\ingredient{1}{T}{white wine vinegar or lemon juice}
+\ingredient{3}{T}{olive oil}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Combine vinegar or lemon juice with mustard, then whisk vigorously while drizzing in the olive oil, making sure the dressing remains emulsified.  Season with salt and pepper.
+\stepsdone
+\end{recipe}
+
+\begin{recipe}{Radish salad}{?? min.}{ingredients}
+\index{radish salad} \index{salad!radish salad}
+\ingredient{}{}{radishes, sliced thin}
+\ingredient{}{}{...}
+\ingredsdone
+\item Combine ...
+\stepsdone
+\end{recipe}
+
+
+\begin{recipe}{String bean salad}{35 mins.}{ingredients}
+\index{vegetables!string beans} \index{string beans!salad}
+\index{beans!string, salad}
+\index{salads!string bean salad}
+\ingredient{1}{lb}{\bf string beans}
+\ingredient{6}{}{garlic cloves, whole, unpeeled}
+\ingredient{}{}{olive oil, salt and pepper}
+\ingredient{\fr12}{}{lemon}
+\ingredsdone
+\item Preheat oven to {\bf 350\F}.  
+\item Steam string beans for {\bf 5-6 minutes}, then rinse under cold water or submerge in ice water, and drain.
+\item Toss garlic cloves in olive oil and roast on foil in oven for {\bf 20 minutes}.
+\item In a bowl, squeeze three roasted garlic cloves and mix with juice of \fr12 lemon, olive oil, salt, pepper, and strips of lemon rind.  Toss string beans and remaining garlic cloves in dressing.  Can serve immediately or marinate for a few hours before serving.
+\stepsdone
+\noindent {\notefont This is my attempt to re-create the green bean salad they sold at Florimonte's, a great family deli and pizza shop near our house in Williamsburg while we lived there.  This is a killer accompaniment for pizza, intensely flavored but cool and acidic.}
+\end{recipe}
+
+\begin{creditrecipe}{Taramosalata}{$<$ 5 min.}{ingredients}{Alice Johnson}
+\index{appetizers!taramosalata}
+\index{taramosalata} \index{salad!taramosalata}
+\ingredient{1}{jar}{Taramosalata}
+\ingredient{1}{jar}{Tarama}
+\ingredient{}{}{chopped onion}
+\ingredient{}{}{lemon juice}
+\ingredient{}{}{olive oil}
+\ingredsdone
+\item Combine and serve with pita bread.
+\stepsdone
+\noindent This is a ``semi-homemade'' recipe.  {\em Taramosalata} is a Greek salad of
+Tarama (a kind of reddish-orange fish egg) with seasonings like onion, lemon, olive oil, and bread or potato.  When you can find it, the store-bought taramosalata is a good start, but it doesn't have enough Tarama in it, so our version involves adding some extra Tarama and then adjusting the seasoning.   
+\end{creditrecipe}
+
+\begin{creditrecipe}{Zucchini flowers}{40 min}{per person (as an appetizer)}{Alice}
+\index{zucchini!flowers} \index{vegetables!zucchini flowers} \index{appetizers!zucchini flowers}
+\ingredient{2-3}{}{\bf fresh picked {\em male} (with stem) flowers, slightly open, with stamen/pistil removed}
+\ingredient{2}{oz}{\bf fresh mozzarella cheese}
+\ingredient{1}{c}{flour}
+\ingredient{}{}{salt}
+\ingredient{}{}{frying oil}
+\ingredient{1-2}{}{\bf anchovies*}
+\ingredsdone
+\item After prepping flowers, prepare batter.  Mix water into salted flour, stirring constantly.  Batter should be pretty thick: about the consistency of sour cream.
+\item Being careful not to break the petals, stuff each flower with a bit of mozzarella cheese.  The cheese should be cut in a stick about 1 \fr12 - 2 inches long,
+and about \fr12 inch thick.  If using, put a half anchovy in each flower as well.
+\item Heat oil, about 3 inches deep in pan.  The oil is ready when a dollop of batter sizzles nicely, but it's too hot if the oil is smoking noticeably.
+\item Gently holding the stuffed flower closed at the tip, twirl in the batter.  You want the flower totally coated, but most especially the opening needs to be closed
+off by batter.
+\item Fry in batches, so as not to overcrowd the oil, {\bf at most 2 minutes per side} until nice and golden.  Drain briefly on paper towels and salt liberally.
+\item Serve as they are ready.  
+\stepsdone
+\noindent \tip Be sure to use male flowers, since these don't rob your zucchini plant of a zucchini later, and also because they have a stem you can use to place 
+them in the oil.  This recipe is best with your own zucchini flowers from the garden.  You can use ones from a farmer's market or grocery if they are really nice and
+fresh. \medskip
+
+\noindent \tip The trick with battering these is to gently press the flower petals closed at the tip, then hold by the stem while you roll them in the batter.  This
+rolling motion will get them coated while tending to keep the petals closed rather than letting them come apart.
+\end{creditrecipe}
+
+\recipegroup{Soups}{\notefont With a working mother (and a father not so interested in cooking), our family regularly had substantial batches of soup that we would eat for multiple meals over the course of the week.  In addition to being a great use of time, soups are particularly easy recipes: your technique can be imperfect, the ingredients can be less than perfect, and they still come out great.  For these reasons, I continue to make soups very regularly and we have quite a collection of soup recipes.
+
+You may notice recipes in this section are not very specific in terms of yield; this is because the recipes are really per batch, often scaled so the main ingredient is simple.  For instance, lentil soup uses one package of lentils, barley soup uses the leftovers of a leg of lamb or turkey, et cetera.}
+
+\begin{recipe}{Albondigas}{45 mins}{ingredients}
+\index{soups!albondigas} \index{albondigas} \index{turkey meatball soup}
+\ingredient{1}{}{med. onion, chopped}
+\ingredient{2}{cloves}{garlic, minced}
+\ingredient{14}{oz.}{canned tomatoes (whole or diced)}
+\ingredient{4}{c}{(2 cans) beef broth}
+\ingredient{6}{c}{(3 cans) chicken broth}
+\ingredient{2}{c}{(1 can) water}
+\ingredient{\fr12}{head}{green cabbage}
+& \multicolumn{3}{l}{\it Meatballs:} \\
+\ingredient{1}{lb.}{\bf ground turkey}
+\ingredient{\fr13}{c}{uncooked white rice}
+\ingredient{\fr12}{t}{salt}
+\ingredient{\fr14}{t}{ground pepper}
+\ingredient{1}{}{egg, slightly beaten}
+\ingredient{\fr12}{bunch}{cilantro (can be frozen), chopped}
+\ingredient{1}{c}{\bf canned hominy*}
+\ingredsdone
+\item In soup pot, saute onion and garlic in oil over low heat until softened.  
+\item Add tomatoes, broth, and water, and bring to boil.  Reduce heat to medium.
+\item Combine meatball ingredients.  Form 1\fr12 - 2 inch balls and drop into boiling broth.
+\item Cover and cook for {\bf 30 minutes}.
+\item Cut cabbage into wedges and steam separately for {\bf 10 minutes}.  
+\item Serve soup over cabbage.
+\stepsdone
+\noindent {\notefont This is a traditional recipe in my wife's side of the family.  We usually omit the hominy rather than substitute, but it's better with it.}
+\end{recipe}
+
+\begin{recipe}{Barley soup}{3.5 hours}{ingredients}
+\index{soups!barley soup} \index{barley soup}
+\index{lamb!barley soup} \index{turkey!barley soup}
+\ingredient{\fr12}{c}{pearl barley}\\
+\ingredient{}{}{\bf leftover lamb or turkey}
+\ingredient{}{}{\bf leftover gravy}
+\ingredient{1}{c}{beef broth}
+\ingredient{2-3}{ribs}{celery, sliced, incl. leaves}
+\ingredient{3}{}{carrots, 1 inch pieces}
+\ingredient{1-2}{}{onions, in eighths}
+\ingredient{2-3}{cloves}{garlic}
+\ingredient{5}{}{peppercorns}
+\ingredient{1}{}{bay leaf}
+\ingredient{}{}{\bf parsley}
+\ingredient{}{}{thyme}
+\ingredient{}{}{salt}
+\ingredsdone
+\item Combine all ingredients in a large pot.
+\item Just cover with cold water.
+\item Bring to a boil, skim, and reduce to a simmer for {\bf 3 hours}.
+\stepsdone
+\end{recipe}
+
+\begin{recipe}{Black bean soup}{5 hours}{ingredients}
+\index{soups!black bean soup} \index{black bean soup}
+\index{beans!black bean soup}
+\ingredient{1}{lb}{\bf black beans}
+\ingredient{2}{}{onions, chopped}
+\ingredient{2}{cloves}{garlic, chopped}
+\ingredient{2}{}{carrots, diced}
+\ingredient{}{}{bay leaf}
+\ingredient{}{}{thyme}
+\ingredient{1}{tsp}{ground cumin}
+\ingredient{}{}{water}
+\ingredient{3-4}{c}{broth*}
+\ingredient{1}{can}{tomato paste}
+\ingredsdone
+\item Cover beans with water, bring to boil, reduce heat and simmer for {\bf 10 minutes}.  
+\item Let sit for {\bf an hour}, then drain.
+\item Saute onions, garlic, and carrots in oil until softened.
+\item Add beans, 6-8 cups of water.  If using broth, use it in place of some water.  Add bay leaf, thyme, cumin, and tomato paste.
+\item Bring to a boil, then reduce to a simmer and cook {\bf 2-3 hours}.  
+\item Season to taste, serve over rice.
+\stepsdone
+Need more info: guessed on amounds of onions, carrots, garlic.  What to say about
+black beans - dried?  Fresh uncooked?  
+\end{recipe}
+
+\begin{recipe}{Butternut squash soup}{45 mins}{ingredients}
+\index{soups!butternut squash soup} \index{butternut squash soup}
+\index{squash!butternut squash soup}
+\ingredient{2}{lbs.}{{\bf butternut squash}, peeled and seeded, in chunks}
+\ingredient{1}{}{{\bf apple}, preferably ginger gold}
+\ingredient{1}{}{large onion, chopped}
+\ingredient{3}{T}{butter}
+\ingredient{\fr12}{t}{each nutmeg, gruond ginger, and ground sage}
+\ingredient{4}{c}{chicken broth}
+\ingredient{\fr12-1}{c}{\bf cream}
+\ingredsdone
+\item In soupt pot, cook the onions in melted butter over low heat until softened.
+\item Add squash, apple, nutmeg, ginger, sage, and broth.  Simmer for {\bf 30 minutes}.
+\item Puree and add cream.
+\stepsdone
+Loosely based on a recipe from Food Network courtesy of Curtis Aikens.
+\end{recipe}
+
+\begin{creditrecipe}{Cabbage soup}{10 hours}{ingredients}{Roz Jacobson}
+\index{soups!cabbage soup} \index{cabbage soup}
+\ingredient{3}{lbs.}{\bf scrap beef and/or bones}
+\ingredient{1}{small}{\bf cabbage, slivered}
+\ingredient{1}{}{28 oz. can tomato puree}
+\ingredient{1}{}{28 oz. can whole tomatoes}
+\ingredient{1}{c}{\bf smalll dried lima beans}
+\ingredient{1 \fr12}{lbs.}{\bf green beans}
+\ingredient{2 \fr12}{lbs.}{frozen peas*}
+\ingredient{3}{}{large potatoes, sliced}
+\ingredient{4}{}{carrots, in 1 inch pieces}
+\ingredient{2}{ribs}{celery, in 1 inch pieces}
+\ingredient{2}{T}{sugar}
+\ingredient{}{}{salt, pepper}
+\ingredient{1}{}{\bf sm. can slivered beets*}
+\ingredient{\fr23}{c}{\bf sherry}
+\ingredsdone
+\item Put beef and beef bones, cabbage, tomatoes, and lima beans in a large pot.  Cover with water, bring to boil, reduce to a simmer and cook for {\bf 1 \fr12 hours}.
+\item Add green beans, peas (if using), potatoes, carrots, celery, sugar, salt, and pepper, and continue simmering for {\bf 30 minutes}.
+\item Add beets (if using) and sherry.  Let stand for {\bf at least 6 hours}, overnight is fine.
+\item Serve with pumpernickel bread.
+\stepsdone
+Missing info: who is Roz Jacobson?  Are the beets and peas something in the original recipe that we never use or should we really keep them as options.  Story?  
+\end{creditrecipe}
+
+\begin{creditrecipe}{Red cabbage soup}{90 mins.}{ingredients}{Liuba}
+\index{soups!red cabbage soup} \index{cabbage soup!red}
+\ingredient{3}{}{carrots, sliced}
+\ingredient{4}{}{onions, chopped}
+\ingredient{1}{}{\bf green pepper, diced}
+\ingredient{1}{bunch}{celery, \fr12-inch slices}
+\ingredient{1}{}{\bf green cabbage, sliced, w/o core}
+\ingredient{3}{sm. cans}{tomato paste}
+\ingredient{\fr12}{bunch}{\bf parsley}
+\ingredient{1}{t}{each: chopped rosemary, thyme leaves, sage (fresh or dried), marjoram}
+\ingredient{1}{}{potato, sliced}
+\ingredient{2}{T}{brown sugar}
+\ingredient{\fr12}{t}{cinnamon}
+\ingredient{\fr14}{t}{ground cloves}
+\ingredient{}{}{juice of \fr12 lemon}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Boil 3 quarts water.
+\item In a large pot, sweat carrots until softened a bit.
+\item Add onions and sweat until soft.
+\item Add green pepper and celery slices (reserve tops for now) and cook briefly.  Then add cabbage, raise heat to high and cook until just wilted.  
+\item Off the heat, add tomato paste, celery tops, potato, rosemary, thyme, sage, marjoram, and parsley.  Almost cover with boiling water, reduce to simmer and cook {\bf 10 minutes}.
+\item Add brown sugar, lemon juice, cinnamon, cloves, salt and pepper.  Cook slowly for {\bf1 hour}; cabbage should be tender.
+\item Serve with chopped parsley, {\bf sour cream}, and sliced scallions.
+\stepsdone
+\noindent \tip You can add the squeezed lemon to the pot for additional lemon flavor.  Adjust seasonings (salt, brown sugar, lemon, pepper, cinnamon) to taste before serving.
+%
+%\medskip
+%\noindent {\notefont ADD STORY ABOUT LIUBA HERE?
+\end{creditrecipe}
+
+
+\begin{recipe}{Chicken noodle soup}{30 mins.}{ingredients}
+\index{soups!chicken noodle} \index{chicken!noodle soup}
+\ingredient{4}{qts.}{\reciperef{Chicken stock}}
+\ingredient{1}{rib}{celery, sliced in \fr12-inch pieces}
+\ingredient{2}{}{carrots, sliced in \fr12-inch pieces}
+\ingredient{1-2}{}{{\bf raw boneless chicken breasts}, cubed}
+\ingredient{1}{pkg.}{wide egg noodles}
+\ingredient{}{}{parsley}
+\ingredsdone
+\item Heat stock over medium heat with celery, carrots, and chicken added.  When up to temperature, add the egg noodles.  Simmer for {\bf 20 minutes}.
+\item Serve with chopped parsley.
+\stepsdone
+\noindent \tip In leftovers, the noodles will swell and become very soft.  To prevent, cook the noodles separately and add at the end.
+
+\medskip \noindent \tip If making directly after making chicken stock, bone the breast meat in advance and use the bones in the stock.
+\end{recipe}
+
+\begin{recipe}{Chicken stock}{3 hours}{ingredients}
+\index{soups!chicken stock} \index{chicken!broth}
+\ingredient{4-6}{}{frozen leftover cooked chicken, carcases and meat and/or raw chicken}
+\ingredient{2}{lbs.}{onions, sliced}
+\ingredient{1}{lb.}{carrots, peeled and sliced}
+\ingredient{1}{lb.}{celery, sliced}
+\ingredient{1}{bunch}{parsley stems}
+\ingredient{10}{}{peppercorns}
+\ingredient{4-5}{sprigs}{thyme (or 1 t thyme leaves)}
+\ingredient{2}{T}{salt}
+\ingredsdone
+\item Preheat oven to {\bf 400\F}.
+\item Arrange mirepoix (onions, carrots, celery) in a sheet pan or roasting pan, salt lightly.  Can oil very slightly.  Roast about {\bf 40 minutes}, turn if getting too caramelized.
+\item If using any raw chicken, reserve a few onion slices.  Cut the raw chicken into manageable pieces and cook in the bottom of the stock pot with onion for about {\bf 5 minutes} on high heat.
+\item Break any frozen chicken carcasses apart so there are no large voids.  Put frozen chicken, parsley, peppercorns, salt, and thyme in pot, and just cover with water.  Bring to boil then reduce to low heat.
+\item When vegetables are done, add them to the pot; add additional water only if needed to cover.  Deglaze the pan with a little water from the pot, then pour the water in.
+\item Let cook for {\bf 2 \fr12 hours}, or longer.  The heat should be low enough that the stock bubbles but doesn't boil.  Skim fat and scum from the top frequently.
+\item When cooked enough, the meat should taste no more chickeny than the stock.  Drain through a strainer into another pot.  
+\stepsdone
+\noindent {\notefont Good chicken stock should be a freebie: we buy our chicken bone-in, often whole, and freeze the carcases as well as any pieces we don't get around to eating.  When you do something with raw boneless chicken like \reciperef{Chicken teriyaki}, you can use bone-in chicken and freeze the raw bones right with the cooked leftovers.  Before you know it you've got two freezer bags full of meaty frozen bones and you can make a good 5 quarts or more of stock.}
+%\medskip
+%\noindent \tip Technically speaking this is a stock since it is made with lots and lots of bones.  However, I use this as a broth as 
+%well because we usually have plenty of leftover meat in addition to the bones so it gets a strong flavor.  
+%\medskip
+%\noindent \tip If you aren't using in a soup right away, let the stock cool for about a half hour before you put it in the fridge, so it 
+%doesn't affect your fridge temperature.  If you do this, you can easily skim off any remaining fat once it has solidified on top.
+\end{recipe} 
+
+\begin{recipe}{Chickpea and tomato soup}{45 mins}{6 servings}
+\index{soups!chickpea and tomato soup} \index{chickpea and tomato soup}
+\index{tomato!chickpea and tomato soup}
+\ingredient{2}{}{15 oz. cans chickpeas, rinsed and drained}
+\ingredient{3}{T}{olive oil}
+\ingredient{2}{cloves}{garlic, rough chopped}
+\ingredient{1}{T}{{\bf fresh rosemary}, finely chopped}
+\ingredient{1}{t}{salt}
+\ingredient{}{}{pepper}
+\ingredient{4}{c}{vegetable stock}
+\ingredient{1}{}{parmesan rind}
+\ingredsdone
+\item Over low-medium heat, fry the garlic and rosemary for {\bf 1 minute}.  
+\item Add tomatoes, salt, pepper, stock, and about half the chickpeas.  Boil, then reduce heat to a simmer.
+\item Add parmesan rind and simmer, partially covered, for {\bf 20 minutes}.
+\item Remove parmesan rind and puree, then put the rind back.  Add remaining chickpeas and 
+let sit for {\bf 5 minutes}, then serve.
+\stepsdone
+\noindent {\notefont This kind of recipe is why we love having an immersion blender so much.
+Without one, you'd have to puree in batches in a blender, and there would be a lot more cleanup, plus you would probably have to let the soup cool and then heat it up again.  What a mess!  With an immersion blender, it's so much simpler.}
+\end{recipe}
+
+\begin{creditrecipe}{Cucumber soup}{??}{serves 6}{Tony Hearn}
+\index{soups!cucumber soup} \index{cucumber soup}
+\ingredient{3}{T}{butter}
+\ingredient{3}{}{{\bf lg. cucumbers}, peeled and chopped}
+\ingredient{1}{}{sm. onion, chopped}
+\ingredient{1}{t}{\bf parsley, chopped}
+\ingredient{\fr13}{c}{flour}
+\ingredient{3}{c}{stock}
+\ingredient{1}{c}{\bf cream or half \& half}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Melt butter in large saucepan.  Add cucumber, onion and parsley and saute over medium heat until tender
+\item Add flour and cook until all flour is moistened.  
+\item Gradually add stock, stirring constantly.  Heat for {\bf 20 minutes}, do not boil.  
+\item Add cream, salt and pepper, and blend.  
+\stepsdone
+\noindent \tip Can be served cold but we prefer hot.
+
+%Missing info: How much cooking time (20 minutes is a guess)?  Story?  What kind of stock? 
+%Is broth okay or does it need to be stock? 
+%Removal candidate?  I've never had it.
+\end{creditrecipe}
+
+\begin{recipe}{Einlauf soup}{10 mins.}{two servings}
+\index{soups!einlauf soup} \index{einlauf soup} \index{eggs!einlauf soup}
+\ingredient{2}{c}{chicken broth}
+\ingredient{1-2}{}{eggs}
+\ingredient{}{}{sm. handful {\bf spinach leaves}}
+\ingredsdone
+\item Beat eggs with a little water.
+\item Bring broth to a boil then remove from heat.  Pour egg slowly into broth.  Add spinach leaves and stir.  
+\item Let sit for {\bf 2 minutes} then serve.
+\stepsdone
+\noindent {\notefont ``Einlauf'' means ``something warm inside you.''  This is a quick comforting soup we traditionally serve for someone who is sick.}
+
+\medskip \noindent Feel free to substitute other greens, like bok choy or chard leaves, for the spinach.
+\end{recipe}
+
+\begin{creditrecipe}{Gazpacho}{8 hours}{ingredients}{Rita Schore plus Combo}
+\index{soups!gazpacho} \index{gazpacho} \index{tomatoes!gazpacho}
+\ingredient{\fr12}{}{\bf medium sweet onion}
+\ingredient{2}{cloves}{garlic}
+\ingredient{\fr13}{c}{olive oil}
+\ingredient{\fr14}{c}{red wine vinegar}
+\ingredient{3}{lbs}{\bf peeled fresh tomatoes}
+\ingredient{3}{c}{\bf tomato juice}
+\ingredient{2}{}{{\bf cucumbers}, peeled and seeded}
+\ingredient{1}{}{{\bf bell pepper}, seeded}
+\ingredient{\fr14}{t}{ground cayenne*}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Puree onion, garlic, olive oil, vinegar, and tomatoes together.  Add tomato juice.
+\item Cut cucumbers and pepper into a small, even dice, and add.
+\item Season with salt and pepper to taste.  Can add cayenne for a kick if desired.
+\item Chill thoroughly (at least {\bf 8 hours}, or overnight).
+\item Serve cold.
+\stepsdone
+\noindent {\notefont A classic summertime treat, but it's really not worth bothering with
+if you can't make it with top-quality tomatoes, which for us always meant garden-grown.
+I like to use green bell pepper, it's cheaper and makes for a less busy-looking result.  
+Don't use red pepper, you won't be able to see it.}
+\end{creditrecipe}
+
+\begin{creditrecipe}{Kale soup}{75 mins.}{ingredients}{Victory Garden}
+\index{soups!kale soup} \index{kale soup}
+\ingredient{1-2}{}{onions, chopped}
+\ingredient{2-3}{}{carrots, chopped}
+\ingredient{1}{clove}{garlic, chopped}
+\ingredient{8}{c}{chicken broth}
+\ingredient{1}{lb}{potatoes, cubed}
+\ingredient{1-2}{}{dried red chili peppers}
+\ingredient{\fr12}{t}{thyme}
+\ingredient{1}{}{bay leaf}
+\ingredient{\fr12}{lg. can}{crushed tomatoes**}
+\ingredient{1}{can}{kidney beans}
+\ingredient{1}{lb}{{\bf kale}, stems removed, chiffonade}
+\ingredient{}{}{\bf kielbasa}
+\ingredsdone
+\item Sweat onions, carrots, and garlic in olive oil over low heat.
+\item Add broth, potatoes, thyme, dried peppers, and bay leaf.  Bring to a boil, then reduce heat and simmer for {\bf 20 minutes}.
+\item In a separate pot, float kielbasa in water over medium heat.
+\item Mash potatoes into small pieces by pressing against side of pan with a wooden spoon.**
+\item Add tomatoes** and kidney beans, simmer for {\bf 10-15 minutes}.
+\item Add kale and simmer for another {\bf 10 minutes}.
+\item Season with salt and pepper.  Serve with slices of poached kielbasa and toasted italian bread, and maybe a drizzle of olive oil.
+\stepsdone
+\noindent \tip **Can use an immersion blender instead - substitute 1 small can diced tomatoes for the crushed tomatoes, add them but temporarily remove the bay leaf and chilis before blending, then add them back.  
+
+\medskip \noindent \tip When reheating, can add some extra kale to brighten up the flavor.
+
+\medskip \noindent {\notefont Kale soup is a real family favorite, one that we often make on the weekend and then heat up and eat again once or twice later in the week.  It's very hearty and satisfying, and since the kale is cooked only for a little while, it doesn't get that long-cooked cabbage aftertaste.  
+This recipe is closely based on one from the Victory Garden cookbook but with a couple of our own ideas.}
+\end{creditrecipe}
+
+
+\begin{recipe}{Lentil soup}{90 min.}{ingredients}
+\index{soups!lentil soup} \index{lentil soup}
+\ingredient{\fr14}{lb.}{{\bf bacon}, in \fr14-inch pieces}
+\ingredient{1}{lb.}{{\bf leeks}, sliced, without tops}
+\ingredient{\fr12}{lb.}{carrots, chopped}
+\ingredient{\fr12}{lb.}{celery, chopped, including leaves}
+\ingredient{1}{lb.}{potatoes, peeled and sliced}
+\ingredient{1}{}{14 oz. can diced tomatoes}
+\ingredient{1}{t}{thyme leaves}
+\ingredient{1}{}{bay leaf}
+\ingredient{1}{pkg.}{{\bf lentils}, about 2 cups}
+\ingredient{2}{qt.}{water or water/stock mix}
+\ingredsdone
+\item Wash lentils and pick through for stems and pebbles.  Put lentils in a mixing bowl with the potatoes, celery, tomatoes, thyme, and bay leaf.
+\item Brown the bacon pieces in the soup pot over low heat.  When brown, add to mixing bowl.
+\item Cook the leeks in the bacon grease over medium heat until tender.  Add the carrots and cook for about {\bf two minutes}.
+\item Dump the contents of the mixing bowl into the soup pot and add the 2 quarts of water or water/stock mix.  Bring to a boil, reduce hit and simmer for {\bf 45 minutes}.
+\item Add 2 more cups of water and continue simmering for {\bf 15 minutes}.
+\stepsdone
+\noindent {\notefont This is my version of the recipe, as opposed to my mother's version.  She uses 2 medium onions instead of leeks, but I find leeks bring this recipe up a level in sophistication.  She also mentions optionally using \fr14 c diced turnips and \fr14 c red wine vinegar and serving with parsley and sausages, though I personally don't remember ever having this dish with sausages.  She also calls for refrigerating the soup overnight.  I agree the flavor improves a bit that way but I think the texture is perfect when the soup is still hot from the first cooking.}
+
+\medskip \noindent {\notefont This is a recipe I remember my mother making occasionally, maybe a couple of times a year.  However for us it is in relatively heavy rotation, partly because our daughter is willing to eat this but won't eat many of our other dinners.}
+\end{recipe}
+
+\begin{recipe}{Matzo ball soup}{2 hours}{serves 8}
+\index{soups!matzo ball} \index{matzo ball soup} \index{matzo!matzo ball soup}
+\ingredient{2}{}{eggs}
+\ingredient{1}{T}{vegetable oil}
+\ingredient{\fr14}{c}{water}
+\ingredient{\fr14}{t}{salt}
+\ingredient{\fr12}{c}{\bf matzo meal}
+\ingredient{}{}{pepper}
+\ingredient{}{}{nutmeg}
+\ingredient{\fr14}{c}{{\bf parsley}, chopped}
+\ingredient{1}{rib}{celery, in \fr12-inch slices}
+\ingredient{2}{}{carrots, in \fr12-inch slices}
+\ingredient{2-3}{qt.}{\reciperef{Chicken stock}}
+\ingredsdone
+\item Beat eggs, oil, water, salt, pepper, nutmeg, and parsley together in a bowl.
+\item Mix in matzo meal, cover, and refrigerate for {\bf 1 hour}.
+\item Form small balls and drop into salted boiling water.  Reduce to simmer and cook {\bf 40 minutes}.
+\item Meanwhile, heat stock with carrots and celery.
+\item Serve matzo balls in soup, can garnish with more parsley.
+\stepsdone
+\noindent \tip To keep the dough from sticking to your fingers, dip them into cold water between balls.  
+\end{recipe}
+
+\begin{creditrecipe}{Minestrone}{1 hour?}{ingredients}{Alice}
+\index{soups!minestrone} \index{minestrone}
+\ingredient{2 \fr12}{c}{fresh or pre-cooked beans}
+\ingredient{3-4}{cloves}{garlic, 1-2 whole, 2 chopped}
+\ingredient{}{}{\bf ham bone or bacon*}
+\ingredient{}{}{sage}
+\ingredient{1}{}{onion, chopped}
+\ingredient{2-3}{}{carrots, chopped}
+\ingredient{1-2}{}{dried hot pepper}
+\ingredient{2}{}{{\bf small zucchini}, diced}
+\ingredient{1}{c}{mushrooms, sliced}
+\ingredient{1}{lb.}{{\bf tomato}, diced (can use canned)}
+\ingredient{}{}{marjoram, thyme, salt, pepper}
+\ingredient{2}{c}{chicken broth}
+\ingredient{10}{}{{\bf swiss chard}, sliced}
+\ingredient{\fr12}{c}{small dried pasta, cooked}
+\ingredsdone
+\item Cover beans, whole garlic cloves, sage, and bacon or ham bone (if using) with water, bring to boil, reduce to a simmer and cook until the beans are tender, about {\bf ?? minutes}.
+\item In the soup pot, saute chopped onion, garlic, and carrots until translucent.  
+\item Add beans, hot peppers, zucchini, mushrooms, tomatoes, marjoram, thyme, salt, pepper, broth, and sliced char stems.  Bring to a boil, reduce to a simmer and cook for {\bf 20 minutes}.
+\item Add chard leaves and cook {\bf 5-10 minutes}.
+\item Serve over pasta with drizzle of olive oil and shaved parmesan.
+\stepsdone
+Missing info: how long should the beans take to soften?  What kind of pasta to use?  
+\end{creditrecipe}
+
+\begin{recipe}{Mushroom soup}{45 mins}{ingredients}
+\index{soups!mushroom soup} \index{mushroom soup}
+\ingredient{\fr12}{c}{onion, minced}
+\ingredient{4}{T}{butter}
+\ingredient{4}{c}{\bf whole milk}
+\ingredient{2}{t}{salt}
+\ingredient{1}{}{bay leaf}
+\ingredient{}{}{pepper}
+\ingredient{}{}{dried tarragon}
+\ingredient{4}{c}{\bf mushrooms, grated}
+\ingredient{\fr12}{c}{\bf cream}
+\ingredient{}{}{lemon juice}
+\ingredsdone
+\item Saute onion gently in butter until soft.  
+\item Microwave 2 c water until hot.  Add hot water, milk, salt, pepper, bay leaf, and tarragon, and bring to boil while stirring constantly.
+\item Reduce to simmer, then add mushrooms and simmer for {\bf 25 minutes}, partially covered.
+\item Finish with cream and a few drops of lemon juice
+\stepsdone
+\noindent \tip To thicken more, can add 3 T flour to sauteed onion and cook out a bit, and then whisk in the hot water first before the other ingredients, gradually, to prevent lumps.  
+\end{recipe}
+
+\begin{creditrecipe}{Onion soup}{90 mins.}{ingredients}{Plats du jour}
+\index{soups!onion soup} \index{onion soup}
+\ingredient{1+}{lb}{onions}
+\ingredient{}{}{butter}
+\ingredient{1}{t}{brown sugar}
+\ingredient{\fr14}{t}{ground cloves}
+\ingredient{}{}{salt and pepper}
+\ingredient{1}{qt.}{beef broth}
+\ingredient{}{}{\bf french bread}
+\ingredient{}{}{olive oil}
+\ingredient{}{}{{\bf gruyere cheese}, grated}
+\ingredsdone
+\item Slice onions thinly.  Saute in butter and olive oil until softened and slightly golden.
+\item Add brown sugar, bay leaf, cloves, salt and pepper.  Cook slowly until caramelized, about {\bf 30 minutes}.
+\item Add beef broth and simmer for {\bf 30 minutes}.  
+\item Brush toasted french bread with olive oil.
+\item Put a piece of toast in the bottom of each bowl, sprinkle with gruyere, and pour soup over the top. 
+\stepsdone
+\noindent {\notefont This is not the classical method for french onion soup, but that requires bowls of the right shape that are oven-safe which we never bothered to invest in.
+Another method is to top the toasted bread with cheese and toast in the toaster oven, and then float one in each bowl of soup.}
+\end{creditrecipe}
+
+\begin{recipe}{Sorrel soup}{40 min}{ingredients}
+\index{soups!sorrel soup} \index{sorrel soup}
+\ingredient{\fr12}{c}{minced onion}
+\ingredient{3}{T}{butter}
+\ingredient{4}{c}{{\bf sorrel}, chiffonade, stems removed}
+\ingredient{3}{T}{flour}
+\ingredient{5}{c}{chicken broth}
+\ingredient{}{}{salt and pepper}
+\ingredient{\fr12}{c}{cream}
+\ingredient{2}{}{egg yolks}
+\ingredsdone
+\item Saute onion in butter slowly until soft but not browned
+\item Add sorrel.  Cover and cook until wilted, about {\bf 5 minutes}.
+\item Add flour, stirring well to prevent lumps.  Cook about {\bf 5 minutes}.
+\item Gradually add broth, stirring constantly as it thickens.  Season with salt and pepper to taste.
+\item Just before serving, beat together cream and egg yolks, and temper by stirring in 2 c of soup, a little at a time, then add back to pot and mix.  Be sure not to boil the soup after this point.
+\stepsdone
+\noindent \tip As an alternative: omit the flour and instead put \fr12 c rice (or some potatoes sliced thin) in with the liquid.  Then cook for 20 min and puree.  
+
+\medskip \noindent \tip Can use milk in place of some of the broth.
+
+\medskip \noindent {\notefont This is a very elegant soup, sour, creamy, and fresh tasting.  The biggest problem is finding sorrel, because it's not an easy ingredient to find in stores.  Fortunately, my parents have some growing in their garden, and it's a perennial herb.}
+\end{recipe}
+
+\begin{recipe}{Split pea soup}{2 \fr12 hours}{ingredients}
+\index{soups!split pea soup} \index{split pea soup}
+\index{peas!split pea soup}
+\ingredient{2}{c}{\bf dried split peas}
+\ingredient{1}{}{med. onion, chopped}
+\ingredient{2}{}{carrots, chopped}
+\ingredient{1}{rib}{celery, chopped}
+\ingredient{}{}{bay leaf, thyme}
+\ingredient{}{}{\bf leftover ham meat*, ham bone}
+\ingredient{}{}{pepper}
+\ingredsdone
+\item Put peas, herbs, and ham meat and bone in soup pot.  Cover with cold water and add about a dozen grinds of pepper, put over high heat.
+\item Chop onions, carrots, and celery, adding to pot as they are ready.  
+\item When the water boils, skim, then reduce heat to a simmer for {\bf 2 \fr12 hours}.  
+\stepsdone
+\noindent {\notefont My mother's recipe calls for this to be served with sausages cooked separately, but I don't recall having it that way.}
+
+\medskip \noindent \tip Do not salt this soup until serving it!  Chances are strong that 
+the ham will have plenty of salt for the whole soup and it's easy to overdo it.
+\end{recipe}
+
+\begin{recipe}{Turkey stock}{3 hours}{}
+\index{turkey!stock} \index{thanksgiving!turkey stock}
+\index{soups!turkey stock}
+\ingredient{}{}{See \reciperef{Chicken stock}, but substitute turkey meat and bones for chicken.}
+\end{ingreds}
+
+\noindent We use Turkey stock in place of Chicken stock in: \reciperef{Chicken noodle soup} and \reciperef{Matzo ball soup}.  We also sometimes make \reciperef{Barley soup} with turkey stock instead of water, broth, and leftover meat; if leftover gravy is available it can be added, or it can be omitted.  
+\end{recipe}
+
+\begin{creditrecipe}{Zucchini soup}{45 mins.}{ingredients}{Julia Child}
+\index{soups!zucchini soup} \index{zucchini!soup}
+\index{squash!zucchini soup}
+\ingredient{\fr12}{c}{onions or shallots, minced}
+\ingredient{3}{T}{butter}
+\ingredient{4}{c}{chicken broth}
+\ingredient{2}{c}{water}
+\ingredient{1 \fr12}{t}{white wine vinegar}
+\ingredient{\fr34}{t}{dried tarragon}
+\ingredient{2}{T}{farina (Cream of Wheat)}
+\ingredient{1 \fr12}{lbs.}{{\bf zucchini}, large dice}
+\ingredient{\fr12}{c}{sour cream}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Saute shallots or onions in butter until soft.
+\item Add broth, water, vinegar, and tarragon and bring to boil.
+\item Slowly add farina while stirring, to prevent clumping or sticking to bottom.  
+\item Add zucchini and simmer partially covered {\bf 20-25 mins}, then puree.
+\item Season to taste and mix in sour cream.  Serve with a dollop of sour cream.
+\stepsdone
+\noindent {\notefont People who grow zucchini in their gardens either plague their friends with too many zucchini they can't eat or need a recipe like this one.  To freeze, stop before adding the sour cream, and add it when preparing to serve.  This soup is good hot but even better cold.}
+
+\medskip
+\noindent \tip If you have zucchini ``baseball bats,'' you can make this soup as a way to avoid wasting them.  However, in that case, seed the zucchini first and also cut away the spongy flesh next to the seeds.  
+\end{creditrecipe}
+
+\recipegroup{Pasta}{\notefont In this section it is assumed that the reader understands the general process of making a pasta dish: first of all boil a large pot of salted water, and cook the pasta so it will be done when the sauce is or slightly later, so things are maximally fresh.  
+
+And make sure people are ready to eat!  You wait for your pasta, your pasta doesn't wait for you.
+
+The recipes in this section are generally given for 1 pound of pasta, which should serve 4.}
+
+
+\begin{creditrecipe}{Broccoli rabe with orchietta}{25 min.}{ingredients}{Alice}
+\index{pasta!orchietta broccoli rabe} \index{broccoli rabe!with orchietta}
+\index{orchietta with broccoli rabe}
+\ingredient{1}{bunch}{\bf broccoli rabe}
+\ingredient{1}{lb.}{\bf orchietta pasta, cooked}
+\ingredient{4}{cloves}{garlic, rough chopped}
+\ingredient{}{}{olive oil}
+\ingredient{\fr12}{c}{parmesan}
+\ingredient{}{}{cream}
+\ingredsdone
+\item Steam broccoli rabe for {\bf 5 minutes}, then cut into pieces roughly the size of the pasta.  
+\item Heat some olive oil in a saucepan, add the garlic and cook until fragrant, then add the broccoli rabe and cook until slightly browned.  
+\item Toss with parmesan, salt, and pepper, and combine with cooked pasta.
+\item Add a little cream to get desired consistency.
+\end{enumerate}
+\end{creditrecipe}
+
+\begin{recipe}{Carbonara}{25 min.}{ingredients}
+\index{pasta!carbonara} \index{carbonara}
+\ingredient{4}{slices}{bacon, in \fr14-inch pieces}
+\ingredient{3}{}{egg yolks}
+\ingredient{1}{}{egg}
+\ingredient{\fr14-\fr13}{c}{cream}
+\ingredient{}{}{pepper}
+\ingredient{1}{lb.}{spaghetti, cooked}
+\ingredient{\fr12}{c}{grated parmesan}
+\ingredsdone
+\item Fry bacon until crispy.  Drain and put bacon in pasta serving bowl.
+\item Beat eggs, egg yolks, and cream until well combined.  Pour into serving bowl.
+\item When pasta is done, drain and let sit in colander for 5 seconds, then dump into serving bowl.  Stir until eggs thicken.  Stir in pepper and grated parmesan and serve.
+\stepsdone
+\end{recipe}
+
+\begin{recipe}{Swiss chard with pasta}{25 min.}{ingredients}
+\index{pasta!swiss chard with pasta} \index{swiss chard!pasta}
+\index{chard!swiss pasta}
+\ingredient{12}{oz.}{\bf swiss chard}
+\ingredient{2}{cloves}{garlic}
+\ingredient{1}{lb.}{cooked penne}
+\ingredient{}{}{parmesan}
+\ingredient{}{}{\bf ricotta}
+\ingredsdone
+\item Separate the chard leaves from the stems.  Slice the stems, chiffonade the leaves.
+\item Steam the stems for a few minutes, then saute the stems and leaves in olive oil with garlic.
+\item Combine with pasta and enough oil to coat.  Add ricotta and parmesan.
+\stepsdone
+``or could add crumbled sausage''  Missing info: quantity of chard to pasta, how long to steam, what shape of pasta.
+\end{recipe}
+
+\begin{creditrecipe}{Pasta Fagioli}{??}{ingredients}{Alice}
+\index{pasta!fagioli (with beans))} \index{fagioli, pasta}
+\index{beans!pasta fagioli}
+\ingredient{2 \fr12}{c}{\bf fresh or dried beans}
+\ingredient{3-4}{cloves}{garlic, 2 chopped, 1-2 whole}
+\ingredient{2}{slices}{bacon*}
+\ingredient{1}{}{onion, chopped}
+\ingredient{2-3}{}{carrots, rough chopped}
+\ingredient{1}{}{zucchini, diced}
+\ingredient{1}{}{sm. can diced tomato}
+\ingredient{1}{c}{chicken broth}
+\ingredient{2-3}{ribs}{\bf swiss chard, sliced}
+\ingredient{}{}{marjoram, thyme, sage, salt, and pepper}
+\ingredient{}{}{small pasta, cooked}
+\ingredient{}{}{olive oil}
+\ingredient{}{}{parmesan}
+\ingredsdone
+\item Put beans, whole garlic cloves, bacon, and sage in a pot.  Cover with \fr12 inch water and simmer until beans are tender.  {\bf How long approx.?}
+\item Set aside beans.  Saute onion, carrots, and chopped garlic in olive oil until fragrant.
+\item Add beans, zucchini, tomatoes, marjoram, thyme, chicken broth, and chard stems.  Simmer for {\bf 15 minutes}.
+\item Add chard leaves and cook another {\bf 5-10 minutes}.
+\item Serve over pasta with parmesan and a drizzle of olive oil.
+\stepsdone
+\noindent \tip The above recipe makes enough beans for about 8 servings, but make only enough pasta for the night, about 1-2 oz. dried pasta per person is plenty.  
+\end{creditrecipe}
+
+\begin{creditrecipe}{Primavera}{??}{ingredients}{Alice}
+\index{pasta!primavera} \index{primavera}
+\ingredient{}{}{vegetables}
+\ingredient{}{}{garlic}
+\ingredient{}{}{chicken broth or cream or tomato sauce and cream}
+\ingredsdone
+\item Cook vegetables in garlic with oil, add liquid at the end.
+\item Cook pasta al dente, finish in the sauce (thin with pasta water if necessary).
+\stepsdone
+This recipe is SO vague!!  Clarify everything.
+\end{creditrecipe}
+
+
+\begin{creditrecipe}{Ricotta sauce}{??}{ingredients}{Alice}
+\index{pasta!ricotta sauce} \index{ricotta sauce} \index{sauce!ricotta}
+\ingredient{?}{?}{\bf tomato sauce}
+\ingredient{\fr13 - \fr12}{c}{\bf ricotta}
+\ingredient{\fr13}{c}{grated parmesan}
+\ingredsdone
+\item Combine sauce with ricotta and parmesan.  Finish cooking pasta in the sauce.  Thin sauce with pasta water.  
+\stepsdone
+\end{creditrecipe}
+
+\begin{recipe}{Tomato sauce}{}{Alice's}
+\index{pasta!tomato sauce} \index{tomato sauce}
+\index{sauce!tomato}
+\ingredient{1}{lb.}{tomatoes ({\bf fresh} or canned)}
+\ingredient{}{}{several stems basil}
+\ingredient{1}{}{sm. onion, chopped}
+\ingredient{1-2}{cloves}{garlic, chopped}
+\ingredient{1}{}{dried chili pepper}
+\ingredsdone
+\item Saute garlic and onion in olive oil until softened.  
+\item Add tomatoes and whole basil stems.  Simmer {\bf 30-40 minutes} until reduced, then remove basil and season.
+\end{enumerate}
+\begin{ingreds}{Freezer, per batch}
+\ingredient{6-7}{lbs.}{{\bf tomatoes}, peeled, seeded, and diced}
+\ingredient{1}{lb.}{onions, chopped}
+\ingredient{2-3}{cloves}{garlic, chopped}
+\ingredient{2-3}{}{carrots, chopped}
+\ingredient{\fr12}{c}{broth}
+\ingredient{1}{can}{tomato paste}
+\ingredient{2}{}{bay leaves}
+\ingredient{}{}{{\bf basil* and/or parsley*}, chopped}
+\ingredsdone
+\item Saute garlic, carrots, and onions in olive oil until softened.
+\item Add juice from the tomatoes and reduce rapidly.  Add tomatoes, broth, tomato paste, bay leaves, and basil and/or parsley if using.
+\item Simmer, uncovered, about {\bf 30 minutes}, and season.  
+\item Let cool and freeze in bags, each enough for one meal.
+\end{enumerate}
+\begin{ingreds}{Fresh, per person}
+\ingredient{\fr12}{lb}{tomatoes, peeled, juiced, and chopped}
+\ingredient{}{}{hot pepper flakes}
+\ingredient{}{}{lots of chopped {\bf parsley and basil}}
+\ingredsdone
+\item Saute tomatoes briefly with pepper flakes (about {\bf 5 minutes}), then add herbs.  Finish pasta in sauce.
+\stepsdone
+\end{recipe}
+
+\begin{recipe}{Zucchini pasta}{30 min.}{ingredients}
+\index{pasta!zucchini pasta} \index{zucchini pasta}
+\ingredient{2}{cloves}{garlic, whole}
+\ingredient{1}{lb.}{{\bf zucchini}, julienned}
+\ingredient{}{}{olive oil}
+\ingredient{\fr12}{c}{{\bf basil}, chopped}
+\ingredient{1}{c}{milk}
+\ingredient{1}{T}{flour}
+\ingredient{}{}{parmesan}
+\ingredient{}{}{{\bf cooked chicken*}}
+\ingredsdone
+\item Slightly crush garlic cloves, saute in oil briefly, then remove.  Saute zucchini in the oil until softened, about {\bf 15 minutes}, then stir in chopped basil.
+\item Remove zucchini from pan.  Add flour to pan, then add milk, stirring until combined.  Cook until thickened, then re-add zucchini and parmesan and remove from heat.  Add chicken at this point if using.  
+\item Finish pasta in sauce for a minute before serving, add pasta water if sauce is too dry.
+\stepsdone
+\end{recipe}
+
+
+\recipegroup{Vegetables}{\notefont Most of the recipes in this section are extremely simple.  
+
+Steaming vegetables is easy; boil an inch of water in a pan, then add a steamer basket with vegetables once steam is coming off the water.  I prefer steaming because it's faster, and the flavor of the vegetables don't leech out into the water.  Sometimes my mother prefers to boil vegetables, though.  It does have advantages: the water can impart some flavor if you flavor it (even just with salt).  Also, it can lessen the intensity of vegetables.  And finally, it keeps them moist.}
+
+\begin{recipe}{Asparagus}{8 mins.}{ingredients}
+\index{vegetables!asparagus} \index{asparagus}
+\ingredient{1}{bunch}{\bf asparagus}
+\ingredsdone
+\item Snap woody ends off.  Steam {\bf 5 minutes}.  Season and serve, with butter if desired.
+\end{enumerate}
+\end{recipe}
+
+\begin{creditrecipe}{Asparagus Mimosa}{30 mins.}{serves 12}{Simca's cuisine}
+\index{vegetables!asparagus} \index{asparagus!mimosa} 
+\ingredient{2-3}{bunches}{\bf asparagus}
+\ingredient{2}{}{hard-boiled eggs}
+\ingredient{3}{T}{chopped fine herbs - parsley, chervil*, chives*}
+\ingredient{3}{recipes}{\reciperefnm{Salad dressing}{Mustard vinaigrette}}
+\ingredsdone
+\item Snap woody ends off.  Steam {\bf 5 minutes}.
+\item Spread separately on paper towels to cool.  
+\item Grate hard-boiled eggs and toss with chopped herbs.
+\item Arrange asparagus on platter, sprinkle egg and herb mixture over the spear tips, and dress with vinaigrette and serve.
+\end{enumerate}
+\end{creditrecipe}
+
+\begin{recipe}{Beans, sauteed string}{10 mins.}{ingredients}
+\index{vegetables!string beans} \index{string beans!sauted}
+\index{beans!string, sauted}
+\ingredient{}{}{\bf string beans}
+\ingredient{}{}{butter}
+\ingredsdone
+\item Boil in salted water {\bf 5-6 minutes}.  Drain, then put the pot back on the heat until any remaining water evaporates.
+\item Put beans back in hot pan with butter and stir until any remaining moisture evaporates.  Season and serve.
+\end{enumerate}
+\end{recipe}
+
+\begin{creditrecipe}{Beans, string, with garlic}{10 mins.}{ingredients}{Liuba}
+\index{vegetables!string beans} \index{string beans!with garlic}
+\index{beans!string, with garlic}
+\ingredient{}{}{\bf string beans}
+\ingredient{}{}{garlic cloves, halved}
+\ingredient{}{}{olive oil, salt and pepper}
+\ingredsdone
+\item Boil or steam {\bf 5-6 minutes}.  
+\item Saute garlic very slowly in olive oil until brown.  Toss beans in oil, season and serve.
+\stepsdone
+See also \reciperef{String bean salad}.
+\end{creditrecipe}
+
+\begin{recipe}{Broccoli}{8 mins.}{}
+\index{vegetables!broccoli} \index{broccoli}
+\ingredsdone
+\item Cut into florets.  Steam {\bf 5 minutes} and season with salt.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Brussels sprouts}{10 mins.}{ingredients}
+\index{vegetables!brussel sprouts} \index{brussel sprouts}
+\index{sprouts}
+\ingredient{}{}{\bf Brussels sprouts}
+\ingredient{}{}{olive oil, salt, pepper, butter}
+\ingredsdone
+\item Cut bottoms off sprouts, cut in half lengthwise, and remove outer leaves.  Steam {\bf 5 minutes}.
+\item Saute briefly in olive oil and butter, season with salt and pepper.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Carrots}{10 mins.}{ingredients}
+\index{vegetables!carrots} \index{carrots}
+\ingredient{}{}{carrots, sliced thin (about \fr18 inch)}
+\ingredient{}{}{olive oil, salt, pepper, butter}
+\ingredsdone
+\item Saute carrots in hot pan with olive oil until the carrots are coated and the oil takes on color.
+\item Add \fr14 c water to pan, cover, and simmer {\bf 5 minutes} until tender and most of the water is gone.
+\item Season with salt, pepper, and butter, and serve.  Can add a touch of sugar if needed.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Cauliflower}{20 mins.}{ingredients}
+\index{vegetables!cauliflower} \index{cauliflower}
+\ingredient{}{}{{\bf Cauliflower}, cut in small florets}
+\ingredient{}{}{sm. piece {\bf fresh ginger}, peeled and julienned}
+\ingredient{}{}{olive oil, salt, pepper}
+\ingredsdone
+\item Brown ginger a bit in small pot with olive oil.  Add cauliflower and cook until slightly browned.  
+\item Add about \fr14 c water, cover, and steam for about {\bf 10 minutes} until tender.  Season and serve.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Cauliflower, roasted}{50 mins.}{ingredients}
+\index{vegetables!cauliflower} \index{cauliflower!roasted}
+\ingredient{}{}{{\bf Cauliflower}, cut in slices}
+\ingredient{}{}{olive oil, salt}
+\ingredsdone
+\item Preheat oven to {\bf 400\F}.  
+\item Arrange thin slices of cauliflower on a sheet pan.  Drizzle generously with olive oil and sprinkle with salt. 
+\item Bake for {\bf 40 minutes}, turning after 25 minutes or so.  
+\end{enumerate}
+\end{recipe}
+
+\begin{creditrecipe}{Latkes}{40 mins.}{ingredients}{Gertie}
+\index{vegetables!potatoes} \index{latkes}
+\index{potatoes!latkes}
+\ingredient{4}{}{medium potatoes, grated}
+\ingredient{1}{}{lg. onion, fine chopped}
+\ingredient{2}{}{eggs}
+\ingredient{\fr13}{c}{flour}
+\ingredient{\fr12}{t}{salt}
+\ingredient{1}{bunch}{{\bf parsley}, chopped}
+\ingredient{}{}{pepper}
+\ingredsdone
+\item Combine grated potatoes with beaten eggs, flour salt, parsley, onion, and pepper.
+\item Heat oil until it smokes very slightly.  Form patties and fry in oil about {\bf 5 minutes per side} until golden brown.
+\stepsdone
+\noindent {\notefont Gertie was my grandmother on my father's side.  She had a debilitating stroke when I was quite young, so I have no memory at all of her cooking.  This is a recipe she gave to my mother years ago.  Latkes are traditionally served during Hanukkah: they are fried in oil, symbolic of the miracle of the holiday, and with their golden appearance, resemble money.}
+\end{creditrecipe}
+
+\begin{recipe}{Potatoes, mashed}{40 mins.}{per person}
+\index{potatoes!mashed}
+\index{vegetables!potatoes}
+\ingredient{1}{}{medium potato, peeled}
+\ingredient{1}{T}{butter}
+\ingredient{}{}{milk* or cream*, salt, nutmeg}
+\ingredsdone
+\item Start a pot of water to boil, then peel the potato(es) and cut into roughly even, large pieces.
+\item Boil the potatoes {\bf 25 minutes}.  Set aside a cup of the potato water, then drain and transfer potatoes to a bowl with the butter in it.
+\item Mash well and soften with milk, cream, or potato water in any combination.  Add a few grates of nutmeg (or about \fr13 t pre-ground, which has less flavor) and salt to taste.
+\stepsdone
+\noindent \tip I like to combine some cream with some potato water, maybe in a 2:1 ratio of cream to water.  The result is rich without being over the top.  However, it's perfectly edible if you use only the potato water.  
+\noindent \tip Mashed potatoes tend to cool down quickly.  If you want to finish them in advance, you can heat the milk, cream, and butter in the microwave in advance before mixing in.  Also, if you mash them in a metal bowl, transfer to a ceramic bowl and cover immediately.  I tend to prefer mashing the potatoes in a bowl to mashing them in the pot because it can be hard to get the masher into the corners.
+\end{recipe}
+
+\begin{recipe}{Potatoes, roasted}{70 mins.}{per person}
+\index{potatoes!roasted}
+\index{vegetables!potatoes}
+\ingredient{1}{med.}{or 2 sm. potatoes}
+\ingredient{}{}{olive oil, salt, pepper, and garlic powder*}
+\ingredsdone
+\item Preheat oven to {\bf 400\F}.
+\item Peel potatoes and cut into evenly-sized pieces.  
+\item Dump in roasting pan.  Dress liberally with olive oil, salt, pepper, and garlic powder, if using.  Space the pieces out so they don't touch.
+\item Roast for {\bf 1 hour}, turning each piece after 20 minutes and after 40 minutes.
+\stepsdone
+\noindent \tip The roasting time for perfectly cooked potatoes varies based on their size. 1 hour should be right if you start with smallish round potatoes and cut them in eight pieces each, halved in each dimension.
+\end{recipe}
+
+\begin{recipe}{Potatoes, spanish}{40 mins.}{ingredients}
+\index{potatoes!spanish} \index{vegetables!potatoes}
+\ingredient{2}{}{med. potatoes}
+\ingredient{}{}{olive oil, salt, pepper}
+\ingredient{1}{T}{tomato paste}
+\ingredient{1}{t}{red wine vinegar}
+\ingredsdone
+\item Peel potato and dice into very even \fr12-inch cubes; discard any particularly small pieces.  
+\item Heat olive oil in frying pan until it shimmers.  Spread cubes of potatoes evenly in pan and sprinkle with salt.
+\item Fry {\bf 20 minutes}, turning over after 10 minutes.
+\item Reduce heat and stir in tomato paste and sprinkle with vinegar.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Potatoes, thin sliced}{1 hour}{per person}
+\index{potatoes!thin sliced} \index{vegetables!potatoes}
+\ingredient{1}{}{med. potato}
+\ingredient{}{}{olive oil, salt, pepper}
+\ingredsdone
+\item Preheat oven to {\bf 450\F}.
+\item Peel potatoes if desired.  Slice very thinly, but as evenly as you can.  Fan potato slices evenly in roasting pan.
+\item Drizzle generously with olive oil, season with salt and pepper.  
+\item Roast in oven for {\bf 45 minutes}.
+\stepsdone
+\noindent \tip Make sure to fan the slices out so each overlaps no more than 75\% of the slice before it.  A large roasting pan can only really hold enough for about 4 people; for more, use a large sheet pan or cookie sheet.
+\end{recipe}
+
+\begin{recipe}{Swiss chard}{25 min.}{ingredients}
+\index{vegetables!swiss chard} \index{swiss chard} \index{chard}
+\ingredient{}{}{\bf Swiss chard}
+\ingredient{}{}{garlic, olive oil}
+\ingredsdone
+\item Separate stems from leaves.  Slice the stems and chiffonade the leaves.
+\item Steam the stems for {\bf 5 minutes}.
+\item Saute the stems and leaves in olive oil with sliced garlic.
+\end{enumerate}
+\end{recipe}
+
+\begin{creditrecipe}{Wild rice}{90 min.}{serves 8}{Annemarie}
+\index{vegetables!wild rice (annemarie)} \index{wild rice}
+\index{rice!wild}
+\ingredient{\fr12}{c}{celery, chopped}
+\ingredient{2}{c}{carrots, chopped}
+\ingredient{1}{c}{{\bf mushroom caps}, sliced}
+\ingredient{4}{T}{butter}
+\ingredient{1}{t}{nutmeg}
+\ingredient{1 \fr13}{c}{wild rice}
+\ingredient{3}{c}{chicken stock}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Saute celery, carrots, and mushrooms in butter until softened, about {\bf 5 minutes}.
+\item Add nutmeg, wild rice, stock, salt and pepper, and simmer for {\bf 1 \fr14 hour}.
+\end{enumerate}
+\end{creditrecipe}
+
+\begin{recipe}{Spinach, quick}{10 min.}{serves 3-4}
+\index{vegetables!spinach} \index{spinach!quick}
+\ingredient{1}{lb.}{\bf spinach}
+\ingredient{}{}{olive oil, garlic, salt, and pepper}
+\ingredsdone
+\item Saute spinach in olive oil with garlic until cooked, about {\bf 8 minutes}.
+\item Season with salt and pepper.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Spinach}{30 min.}{serves 3-4}
+\index{vegetables!spinach} \index{spinach}
+\ingredient{1}{lb.}{\bf spinach}
+\ingredient{}{}{olive oil, salt, pepper, and nutmeg}
+\ingredient{}{}{butter*}
+\ingredsdone
+\item Cook spinach in olive oil with salt until wilted, then drain the liquid.
+\item Continue cooking over medium-high heat until the spinach stops releasing water.  
+\item Add pepper, nutmeg, and butter if using.  Continue to cook until spinach is dry.
+\stepsdone
+\noindent {\notefont Cooking this dish properly takes guts.  If you go too far, the spinach will stick and burn.  If you stop too soon, though, it completely ruins the effect.  Err on the side of too dry.}
+\end{recipe}
+
+\begin{recipe}{Summer squash}{15 min.}{ingredients}
+\index{vegetables!summer squash} \index{summer squash} 
+\index{squash!summer squash} \index{zucchini}
+\index{vegetables!zucchini}
+\ingredient{}{}{{\bf summer squash} - patty pan, zephyr, zucchini, etc.}
+\ingredient{}{}{garlic, olive oil, salt, and pepper}
+\ingredsdone
+\item Slice squash thinly.  Saute in olive oil with garlic until tender and slightly browned.
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Summer squash, steamed}{25 min.}{ingredients}
+\index{vegetables!summer squash} \index{summer squash} 
+\index{squash!summer squash}
+\ingredient{3}{lbs.}{{\bf summer squash} - patty pan}
+\ingredient{1}{}{sm. onion, coarse chopped}
+\ingredient{}{}{butter, salt, and pepper}
+\ingredsdone
+\item Slice squash into thick \fr38-inch slices.  
+\item Cook in saucepan with a little water about {\bf 20 minutes} until soft.
+\item Drain if there is excessive liquid.  Mash with butter and season.
+\end{enumerate}
+\end{recipe}
+
+\begin{creditrecipe}{Tsimmis}{90 min.}{ingredients}{Hattie}
+\index{vegetables!tsimmis} \index{tsimmis}
+\ingredient{6}{}{carrots, in chunks}
+\ingredient{4-6}{}{{\bf yams}, in chunks}
+\ingredient{\fr13}{c}{brown sugar}
+\ingredient{\fr12}{}{lemon, juice of}
+\ingredient{}{}{beef stock}
+\ingredient{1}{lb.}{\bf pitted prunes}
+\ingredient{}{}{optional: slices of apple, chunks of potato}
+\ingredsdone
+\item Preheat oven to {\bf 350\F}.
+\item Put carrots, yams, brown sugar, lemon juice, and apple and potato chunks if using, in a large roasting pan.  Add beef stock to almost cover.  
+\item Bake {\bf \fr12 hour}, then add prunes.
+\item Continue baking until tender, about {\bf 45 minutes}.
+\stepsdone
+\noindent {\notefont Hattie was my mother's grandmother on her mother's side - my great grandmother.  Her recipe calls for 4 small pieces of sour salt, which is crystallized citric acid.}
+\end{creditrecipe}
+
+\begin{recipe}{Zucchini fritters}{30 min.}{ingredients} 
+\index{vegetables!zucchini fritters} \index{zuchinni!fritters} 
+\ingredient{}{}{\bf bisquick}
+\ingredient{}{}{\bf zucchini}
+\ingredient{}{}{olive oil, salt}
+\ingredsdone
+\item Mix bisquick with water to make a thick batter, about 1 c per zucchini.
+\item Heat a pan with about \fr12 inch of olive oil, until a dollop of batter floats and simmers; reduce heat if you notice smoke.  
+\item Cut zicchini into 1-inch spears, coat with batter, and fry, turning as needed, until golden brown.  Serve immediately.
+\end{enumerate}
+\end{recipe}
+
+\begin{creditrecipe}{Zucchini pancakes}{1 hour}{ingredients}{Ray's Resort}
+\index{vegetables!zucchini pancakes} \index{zucchini!pancakes} 
+\index{pancakes!zucchini}
+\ingredient{2}{c}{grated {\bf zucchini}}
+\ingredient{1}{}{sm. onion, minced}
+\ingredient{1}{clove}{garlic, minced}
+\ingredient{2-3}{}{eggs}
+\ingredient{2}{T}{milk}
+\ingredient{}{}{salt and pepper}
+\ingredient{\fr12}{t}{baking powder}
+\ingredient{$<$ \fr12}{c}{flour}
+\ingredient{2-3}{T}{grated parmesan*}
+\ingredsdone
+\item Beat eggs with milk and some salt and pepper.  Add to a bowl with zucchini, onion, and garlic.
+\item Let sit for {\bf 20 minutes} to draw juice out.
+\item Add baking powder, and add flour as needed to make a think batter.  Add parmesan if using.
+\item Cook in a medium-heat pan with oil until browned on both sides.
+\end{enumerate}
+\end{creditrecipe}
+
+
+\recipegroup{Entrees}{}
+
+\begin{recipe}{Eggplant parmesan}{1 \fr34 hours}{ingredients}
+\index{casseroles!eggplant parmesan} \index{eggplant!parmesan}
+\ingredient{1}{}{{\bf lg. eggplant}, in \fr12 inch slices}
+\ingredient{2}{c}{smooth tomato sauce}
+\ingredient{2}{T}{\bf sherry or vermouth}
+\ingredient{8}{oz.}{\bf monterey jack cheese, or less}
+\ingredsdone
+\item Preheat oven to {\bf 325-350\F}.
+\item Add sherry to tomato sauce and simmer while you slice the eggplant.
+\item Brush eggplant slices with olive oil and bake for {\bf 15-20 minutes}, until softened but moisture has evaporated.
+\item Make layers in a baking dish: 2x (eggplant, cheese, sauce).  Bake {\bf 45-60 minutes}.
+\stepsdone
+\noindent \tip You can use canned tomato sauce for this, but to go the extra mile, fry a clove of chopped garlic in olive oil, then add can of sauce, marjoram, salt, and pepper, and simmer {\bf 20 minutes} before adding the sherry or vermouth.  
+\end{recipe}
+
+\begin{recipe}{Macaroni and cheese}{1 \fr12 hours}{serves 3-4}
+\index{casseroles!macaroni and cheese} \index{macaroni and cheese}
+\ingredient{2}{c}{dry macaroni (elbows or shells)}
+\ingredient{}{}{cheedar cheese, grated}
+\ingredient{}{}{butter, salt, and pepper}
+\ingredient{}{}{milk}
+\ingredient{1-2}{slices}{stale bread*, chopped into crumbs}
+\ingredsdone
+\item Preheat oven to {\bf 350\F}.  Cook macaroni according to box instructions; drain well.
+\item Put half the cooked macaroni in glass baking dish.  Season with salt and pepper and top with grated cheese.  Add remaining macaroni, season, and top with more cheese.  
+\item If using, sprinkle the top with bread crumbs.  Compress with fingers.  Dot with butter.
+\item Pour in milk until about mid-way up the top layer of macaroni.  Bake for {\bf 1 hour}.
+\item Let sit for {\bf 5-10 minutes} before serving.
+\stepsdone
+\noindent \tip The shape of the pasta and compressing the layers before adding milk are absolutely essential steps.  The pasta needs to bake in milk, or it hardens and dries out on top, but too much milk and you get pasta in a weak cheesy soup.  
+
+\medskip \noindent \tip I find it's better to use less than top-notch cheddar.  Extra sharp, aged stuff doesn't melt well, and you can emulate the sharpness by adding a bit of ground cayenne between the layers.  
+\end{recipe}
+
+\begin{creditrecipe}{Quiche Lorraine}{1 hour}{ingredients}{Michelle}
+\index{quiche lorraine}
+\ingredient{}{}{\reciperef{Pastry shell}}
+\ingredient{5}{}{eggs}
+\ingredient{1}{c}{\bf heavy cream}
+\ingredient{\fr14}{lb.}{bacon or ham, cooked, chopped}
+\ingredient{}{}{salt and pepper}
+\ingredsdone
+\item Preheat oven to {\bf 450\F}.  
+\item Beat eggs with cream, salt, and pepper.  Mix in bacon or ham.  Pour in pie shell and bake for {\bf 45 minutes}.
+\end{enumerate}
+\end{creditrecipe}
+
+
+\begin{recipe}{Matzo and cottage cheese}{10 mins.}{serves one}
+\index{matzos and cottage cheese} \index{matzo!and cottage cheeze}
+\ingredient{1}{}{\bf matzo}
+\ingredient{1}{c}{whole milk {\bf cottage cheese}}
+\ingredient{2}{T}{milk}
+\ingredient{}{}{salt, pepper, garlic powder}
+\ingredient{}{}{butter}
+\ingredsdone
+\item Mix cottage cheese with milk, salt, pepper, and garlic powder.
+\item Butter a matzo, place on a sheet of foil.  Spread cottage cheese mixture over it evenly, all the way to the edge.  Dot with butter.
+\item Broil until cottage cheese is melted and browned in places, about {\bf 5 minutes}.
+\stepsdone
+\noindent \tip You {\em can} cook this with skim milk and lowfat or nonfat cottage cheese but it really doesn't work properly without the fat content.  You can use some sour cream in place of some of the cottage cheese if you have it on hand, especially to remedy low fat content in the cottage cheese.
+
+\medskip \noindent {\notefont This is a special family treat passed down from my grandmother Jane to my mother to me.  If you have never had cottage cheese melted like this, trust me, it's a revelation.  This could probably work well on just about any cracker, but matzo is a good choice if you're eating it as a meal rather than as an appetizer.  Honestly, it would probably be better to cook this directly on a sheet of metal, because the matzo softens and sticks to the foil, and then you always scrape the foil when trying to eat off it, and you can't be too surprised to get a little piece in your mouth.  So you might try that, but for me, I have a lot of memories of those bits of foil and a kind of melted cheese that's a family secret.}
+\end{recipe}
+
+\begin{recipe}{Meatloaf}{90 min.}{ingredients}
+\index{meat loaf}
+\ingredient{1}{lb}{ground beef}
+\ingredient{2}{slices}{stale bread, diced}
+\ingredient{1}{}{egg}
+\ingredient{1}{clove}{garlic, minced}
+\ingredient{1}{}{sm. onion, minced}
+\ingredient{}{}{salt, pepper, ketchup}
+\ingredient{}{}{mustard*}
+\ingredient{}{}{{\bf parseley}*, chopped}
+\ingredsdone
+\item Preheat oven to {\bf 350\F}.
+\item Combine beef, bread, egg, salt, pepper, garlic, and onion, and parseley if using, and mix by hand.
+\item Fill a loaf pan with the mixture, then put ketchup (and mustard if using) on top.
+\item Bake for {\bf 1 hour}.  
+\end{enumerate}
+\end{recipe}
+
+\begin{recipe}{Stuffed peppers}{75 mins.}{per pepper}
+\index{stuffed peppers}
+\index{peppers!stuffed}
+\ingredient{2 \fr12}{oz.}{ground beef}
+\ingredient{\fr12}{c}{white rice, cooked}
+\ingredient{3}{T}{grated parmesan}
+\ingredient{\fr12}{clove}{garlic, chopped}
+\ingredient{\fr12}{}{sm. onion, chopped}
+\ingredient{}{}{chopped parseley}
+\ingredient{1}{t}{\bf white vermouth}
+\ingredient{}{}{salt and pepper}
+\ingredient{1}{}{{\bf large bell pepper}}
+\ingredient{}{}{tomato juice}
+\ingredsdone
+\item Preheat oven to {\bf 350\F}.  
+\item Cut a ``lid'' off the pepper, about 1 inch from top.  Clean out seeds and pith.
+\item In a frying pan over medium heat, saute onion and garlic in olive oil briefly, then add ground beef and cook until no longer red.
+\item Remove from heat, and stir in parseley, salt and pepper, vermouth, and parmesan.  
+\item Put the pepper(s) in a nonstick or greased baking dish and fill each with the rice/beef mixture, then cover with the ``lid''.
+\item Pour 1 inch of tomato juice into the roasting pan and bake {\bf 40 minutes}, basting occasionally.
+\stepsdone
+\noindent {\notefont In retrospect, I'm surprised we had this as often as we did.  It's kind of a pain.. two stage cooking process, fair bit of prep.  But for whatever reason, it was one of our staple dinners when I was growing up.}
+\end{recipe}
+
+\begin{creditrecipe}{Tamale pie}{90 mins.}{serves 8+}{Jane or her mother}
+\index{casseroles!tamale pie} \index{tamale pie}
+\ingredient{2}{}{lg. onions, chopped}
+\ingredient{1}{c}{flour}
+\ingredient{1}{c}{chicken broth}
+\ingredient{}{}{(heat, sm. can green chiles for example)}
+\ingredient{3}{cans}{tomato sauce}
+\ingredient{2}{cans}{\bf cream style corn}
+\ingredient{4}{}{{\bf chicken breasts}, cooked and sliced}
+\ingredient{1}{c}{\bf sliced black olives}
+\ingredient{1}{c}{corn meal}
+\ingredient{4}{T}{butter}
+\ingredsdone
+\item Boil 4 c water with cornmeal and some salt.
+\item In a saucepan, saute onions in olive oil until softened.  Mix in flour and cook a bit.
+\item Add tomato sauce and (heat) and combine.  Thin with chicken broth to desired consistency.
+\item Turn off the heat and add corn, chicken, and olives.
+\item Cook cornmeal mixture until thick, about {\bf 30 minutes total}.  Stir in butter.
+\item Line the bottom of a roasting pan with cormeal mixture, and top with sauce and chicken.  Heat in oven until ready to serve.
+\stepsdone
+\end{creditrecipe}
+
+\begin{recipe}{Pollo Bolognaise}{45 mins.}{serves 3-4}
+\index{pollo bolognaise} \index{bolognaise!pollo bolognaise}
+\index{chicken!pollo bolognaise}
+\ingredient{3}{}{chicken breasts}
+\ingredient{}{}{flour, salt, pepper, olive oil}
+\ingredient{6}{slices}{\bf prosciuto}
+\ingredient{6}{slices}{cheese: fontina, bel paesa, or jack}
+\ingredient{}{}{parmesan*}
+\ingredient{2}{T}{chicken broth or water}
+\ingredsdone
+\item Preheat oven to {\bf 350\F}.
+\item Cut chicken breasts in half (to make two full sized filets of half the thickness), season with salt and pepper, and dredge in flour, shaking off excess.
+\item Pan fry in olive oil over medium-high heat until golden on each side, about {\bf 5 minutes each side}.
+\item Put breasts in greased shallow baking dish.  Top each with a slice of prosciutto, then a slice of cheese.  Sprinkle with parmesan if using.
+\item Add chicken broth or water, and bake for {\bf 10 minutes} until gooey.  Use pan juices as a sauce.
+\stepsdone
+\noindent \tip This recipe is easy to time with other dishes; just delay the last step until 10 minutes before everything is ready; 15 if the chicken really cools down.  
+\end{recipe}
+
+%\newpage
+
+\begin{recipe}{Grilled Marinated Chicken}{50 min.}{serves 3}
+\index{chicken!grilled, w/ginger and paprika}
+\ingredient{1}{pkg.}{chicken parts}
+\ingredient{1}{clove}{garlic, chopped}
+\ingredient{$\frac12$}{}{lemon, juice and zest of}
+\ingredient{$\frac13$}{c}{soy sauce}
+\ingredsdone
+\item Marinate chicken pieces in lemon juice, soy sauce, and garlic for {\bf 20 minutes}.
+\item Cook on a hot grill or under the broiler for {\bf 10-12 minutes}, depending on the heat level.  
+\item Turn the pieces over, then cook for another {\bf 10-12 minutes}.
+\stepsdone
+\noindent \tip If you buy chicken in bulk, you can prepare bags of chicken parts with marinade and freeze them.  This cuts the cooking time down to just the 20-25 minutes of actual cooking.  Marinating for more than 20 minutes will intensify the flavor.\\
+\tip Marinate in a ziplok bag and try to squeeze as much of the air out as possible.  This way less marinade covers more chicken surface area.
+\end{recipe}
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\bf ROAST CHICKEN}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!roast chicken} \index{roast chicken}
+\index{chicken!roast}
+
+preheat oven to 500\\
+\\
+use a broiler of about 4 pounds (as big as you can find is fine)\\
+\\
+put onion or tops of anise or a lemon into\\
+chicken cavity, plus some salt\\
+\\
+coat outside of chicken with salt and tarragon\\
+\\
+place breast side down in pan\\
+\\
+cook at 500 for 20 minutes\\
+\\
+add carrots and onions to pan if desired at this point\\
+\\
+reduce heat to 425 and cook for 15 minutes\\
+\\
+reduce heat to 375 and cook for 15 minutes\\
+\\
+it should be done by now, but continue cooking until done\\
+(juices run clear)\\
+\\
+can make gravy if desired:\\
+\hspace{0.5 in}	degrease pan\\
+\hspace{0.5 in}	add water and cook\\
+\hspace{0.5 in}	combine flour and water\\
+\hspace{0.5 in}	whisk into pan while it is boiling\\
+\hspace{0.5 in}	add enough to thicken to right consistency\\
+\\
+(to combine flour and water:  put flour into a bowl; add water in\\
+a thin stream while whisking rapidly)\\
+\\
+can also use a roasting chicken.  In this case increase\\
+each time period by 5 minutes, and then keep cooking at\\
+the end until done.\\ \hline
+
+  \end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{ROAST CHICKEN WITH CREAM (JULIA CHILD)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!roast chicken with cream (julia child)} \index{roast
+chicken with cream} \index{chicken!roast with cream}
+
+cook the gizzard, peeled and minced, in 1 T butter with a little oil and then add:\\
+\hspace{0.5 in}	chopped heart\\
+\hspace{0.5 in}	chopped livers (1 to 4, better with more)\\
+\hspace{0.5 in}	1 T minced shallot or green onion\\
+\\
+cook until liver has stiffened but is still rosy inside.  combine in mixing bowl with:\\
+\hspace{0.5 in}	2 T cream cheese\\
+\hspace{0.5 in}	1 T softened butter\\
+\hspace{0.5 in}	2 T chopped parsely\\
+\hspace{0.5 in}	1/4 c dry bread crumbs\\
+\hspace{0.5 in}	tarragon or thyme\\
+\hspace{0.5 in}	salt and pepper\\
+\\
+use this mix to stuff a chicken. it's enough for a broiler (3-4 pounds)\\
+rub the chicken with butter.  then roast the chicken:\\
+\hspace{0.5 in}	start breast-side up at 425 for 15 minutes\\
+\hspace{0.5 in}	baste, turn to one side, and reduce oven to 350\\
+\hspace{0.5 in}	cook for 10-15 minutes\\
+\hspace{0.5 in}	baste and salt\\
+\hspace{0.5 in}	turn on other side and cook for 10-15 minutes\\
+\hspace{0.5 in}	baste and salt\\
+\hspace{0.5 in}	turn breast side up, baste\\
+\hspace{0.5 in}	cook until done (takes about 1 hour)\\
+\hspace{0.5 in}\hspace{0.5 in}(juice in thickest part of thigh runs yellow,\\
+\hspace{0.5 in}\hspace{0.5 in}drumstick is tender when pressed and moves in its socket)\\
+\\
+about 10 minutes before the chicken is done, remove all but\\
+one T of fat from the pan, and start basting with 2-3 T\\
+heavy cream every 3-4 minutes.  Takes 1 cup cream in all\\
+\\
+remove chicken to platter and salt lightly.  then cover and let it rest\\
+\\
+add 3 T chicken stock to the pan and boil rapidly, scraping up all the dripping\\
+just before serving, stir in 3-4 T of cream, and correct\\
+the seasoning, including a few drops of lemon juice\\
+\\
+for a roasting chicken, increase the stuffing amount a\\
+bit (extra crumbs and cream cheese), and cook a bit longer\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+
+
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{FISH WITH POTATOES}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!fish with potatoes} \index{fish with potatoes}
+
+slice thin 1 1/2 lb potatoes\\
+\\
+combine with 1 T garlic chopped, 1/3 c olive oil, \\
+lots of chopped parsely (chopped onion)\\
+\\
+bake at 400 for 15 min (until half done)\\
+\\
+place fish (or meat) on top, e.g., bluefish\\
+brush with oil\\
+(top with mixture of chopped onions and parsely)\\
+\\
+bake 10-15 minutes until fish is done, basting once\\
+\\
+could put slices of tomato and/or lemon on top of fish\\
+before baking\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{LEG OF LAMB}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!leg of lamb} \index{leg of lamb} \index{lamb!leg of}
+
+there are two ways.  In each case the lamb roasts for\\
+at 350 for about 1 and 1/4 hours\\
+\\
+Technique 1:\\
+\\
+season lamb with salt, pepper, garlic powder\\
+(or can put garlic slivers in meat)\\
+put coarsely sliced carrots and onions in pan\\
+\\
+roast until lamb is done\\
+\\
+make gravy:\\
+\hspace{0.5 in}	add water to pan and boil to include all the
+dripping\\
+\hspace{0.5 in}	add mixture of flour and water to the boiling juices\\
+\hspace{0.5 in}	while stirring rapidly\\
+\hspace{0.5 in}	correct the seasoning\\
+\\
+Technique 2:\\
+\\
+combine:\\
+\hspace{0.5 in}	1/2 c dijon mustard\\
+\hspace{0.5 in}	2 T soy sauce\\
+\hspace{0.5 in}	1 clove mashed garlic\\
+\hspace{0.5 in}	1 t dried ground rosemary or thyme\\
+\hspace{0.5 in}	1/4 t powdered ginger\\
+\\
+beat in by droplets:\\
+\hspace{0.5 in}	2 T olive oil\\
+\\
+paint the lamb with the mixture and set in on a\\
+rack in the roasting pan.  Let it marinate for at\\
+least one hour (up to several hours)\\
+\\
+roast and serve (no vegetables in pan and no gravy\\
+when cooked this way).\\
+\\
+can also use the mustard coating for rack of lamb\\
+or for butterflied leg of lamb\\
+
+
+
+
+\hline
+
+\end{tabular}
+
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{RACK OF LAMB}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!rack of lamb} \index{rack of lamb} \index{lamb!rack
+of}
+
+
+trim almost all fat off racks\\
+\\
+marinate in:\\
+\hspace{0.5 in}	soy sauce\\
+\hspace{0.5 in}	crushed garlic\\
+\hspace{0.5 in}	lemon juice\\
+\hspace{0.5 in}	chopped or crushed ginger\\
+\hspace{0.5 in}	olive oil\\
+\\
+or as an alternative:\\
+\hspace{0.5 in}	use a dry rub of crushed garlic and chopped rosemary\\
+\\
+either barbeque or cook in a hot oven (400 or more)\\
+until pink inside.\\
+\\
+takes about 15 minutes\\
+\\
+one rack serves 2-3\\
+\\
+can also use with butterflied leg of lamb\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PORK LOIN}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!pork loin} \index{pork loin}
+
+marinate loin or loins in:\\
+\hspace{0.5 in}	olive oil\\
+\hspace{0.5 in}	lemon juice\\
+\hspace{0.5 in}	crushed garlic\\
+\hspace{0.5 in}	soy sauce\\
+\hspace{0.5 in}	chopped or crushed ginger\\
+\\
+barbeque or roast in hot oven (450) until pale pink.\\
+\\
+takes about 15-20 minutes\\
+\\
+figure 1/3 pound per person\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PRIMERIB}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!primerib} \index{primerib}
+
+
+
+
+about 10-12 min. per pound\\
+at 325-350\\
+\\
+stick in slivers of garlic\\
+put on rack\\
+\\
+done at 120\\
+\\
+season with salt and pepper\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{BROILED SALMON}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!broiled salmon} \index{broiled salmon}
+\index{salmon!broiled}
+
+get salmon steaks, about 3/4 inch thick\\
+(can also use fillets)\\
+\\
+on each side:\\
+\hspace{0.5 in}	rub with olive oil\\
+\hspace{0.5 in}	season with salt\\
+\\
+let marinate for 1/2 hour or more\\
+\\
+cook on the grill or under the broiler\\
+\\
+cook for about 5 minutes on the first side.\\
+then turn and cook for about 4 minutes more\\
+\\
+salmon is done when immediately after it stops\\
+being translucent in the center\\
+\\
+serve with lemon\\
+\\
+can also serve with maitre d'hote butter:\\
+\hspace{0.5 in}	cream butter with herbs (chopped parsely, chives,
+chervil)\\
+\hspace{0.5 in}	and a little lemon juice\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{ROASTED SALMON (AUNT HATTIE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!roasted salmon (aunt hattie)} \index{roasted salmon}
+\index{salmon!roasted}
+
+3 lb salmon in one piece\\
+\\
+place in oven proof pan\\
+\\
+cover with:\\
+\hspace{0.5 in}	sliced onions\\
+\hspace{0.5 in}	sliced tomatoes\\
+\hspace{0.5 in}	lemon slices\\
+\\
+salt and pepper\\
+drizzle with olive oil\\
+\\
+cook at 350 until done, about 1 hour.\\
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+
+\normalsize
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{MINUTE STEAK}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!minute steak} \index{minute steak}
+\index{steak!minute}
+
+you need a thin (1/4 inch) steak.  I usually use\\
+top round.\\
+\\
+can also do hamburgers this way, but the patties need\\
+to be thin\\
+\\
+heat a cast-iron pan until very hot\\
+salt the surface\\
+\\
+cook the steak about 1 minute (or less) on each side\\
+
+
+
+\hline
+
+\end{tabular}
+
+
+\newpage
+\normalsize
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{STEAK WITH MUSTARD}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!steak with mustard} \index{steak with mustard}
+
+use a new york strip, a rib eye, a t-bone, or a porterhouse\\
+\\
+season the steak with: \\
+\hspace{0.5 in}	dry mustard (be generous)\\
+\hspace{0.5 in}	salt \\
+\hspace{0.5 in}	pepper\\
+\hspace{0.5 in}	garlic powder\\
+\\
+can cook either on the grill or under the broiler\\
+\\
+cook about 4 minutes, then turn and cook another 3-4\\
+minutes until done\\
+\\
+if cooking on the broiler, season both sides before cooking.\\
+\\
+if cooking in the oven, season the second side when you\\
+turn the steak\\
+
+
+\hline
+
+\end{tabular}
+
+
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{TURKEY (WILLA MAE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!turkey (willa mae)} \index{turkey}
+
+make a paste: dry mustard, salt, pepper, mixed with water\\
+(and paprika too if you want) \\
+rub it on the turkey \\
+can put sliced onions on top if you want\\
+\\
+combine:\\
+\hspace{0.5 in}	one large loaf stale or lightly toasted bread, cubed\\
+\hspace{0.5 in}	2 large + onions chopped (about 3 c)\\
+\hspace{0.5 in}	1/2 head celerly chopped (about 3 c)\\
+\hspace{0.5 in}	1 c chopped parsely\\
+\hspace{0.5 in}	poulty seasoning, salt and pepper\\
+\hspace{0.5 in}	2 c chopped walnuts or chestnuts\\
+\\
+use about 1 c stock to moisten\\
+\\
+stuff the turkey and put the extra in a casserole\\
+\\
+(may need more to get the extras)\\
+\\
+cook at 350 for 3 1/2 to 4 hours\\
+baste with pan juices or water occasionally\\
+(I use extra water and pour it over the top)\\
+\\
+can add carrots and onions to pan if you want\\
+\\
+(cook extra stuffing one hour, covered with foil)\\
+\\
+cook the neck and giblets with onion, etc. to make a stock for gravy\\
+\\
+gravy:\\
+\hspace{0.5 in}	degrease the pan\\
+\hspace{0.5 in}	add water and stock to the pan and cook to loosen all bits\\
+\hspace{0.5 in}	mix flour with water, stir quickly to avoid lumps\\
+\hspace{0.5 in}	gradually add this mix to liquid in pan, stirring\\
+\hspace{0.5 in}	season with salt and pepper\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+\normalsize
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{CRANBERRY RELISH}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!turkey (willa mae)!cranberry relish} \index{cranberry
+relish} \index{sauce!cranberry relish} \index{turkey!cranberry relish}
+
+pick over:\\
+\hspace{0.5 in}	12 oz. cranberries\\
+\\
+add to food processor, with\\
+\hspace{0.5 in} 1 tbsp tangerine peel (without pith), chopped\\
+\hspace{0.5 in} seeded segments of 1 tangerine\\
+\hspace{0.5 in} 1/2 cup white sugar\\
+\hspace{0.5 in} 1/2 tsp five spice powder\\
+\\
+pulse 8-10 times until desired consistency reached\\
+\\
+chill at least one hour\\
+\hline
+\end{tabular}
+
+\newpage
+
+\normalsize
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+\multicolumn{1}{|c|}{\textbf{CRANBERRY SAUCE (LA Times)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{fish/meat!turkey (willa mae)!cranberry sauce} \index{cranberry
+sauce} \index{sauce!cranberry} \index{turkey!cranberry sauce}
+
+
+
+bring to a boil:\\
+\hspace{0.5 in}	1.5 c water\\
+\hspace{0.5 in}	1.5 c sugar\\
+\\
+cook until clear\\
+\\
+add 1 lb cranberries, picked over\\
+\\
+simmer uncovered until cranberries crack open, about 5 minutes\\
+\\
+add 1/2 sliced orange\\
+\\
+when cool refrigerate\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+\LARGE
+
+\begin{flushright}
+
+\bf{DESSERTS}\\  \index{desserts}
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+\bf{DESSERTS}\\
+
+
+\end{flushright}
+
+\newpage
+\normalsize
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{ALMOND APPLE TART FOR JIM}}\\
+\multicolumn{1}{|c|}{\textbf{(SIMCA's CUISINE)}}
+\\
+\\
+%PUT RECIPE HERE WITH \\ ENDING EACH LINE
+
+\index{desserts!almond apple tart for jim (simca's cuisine)}
+\index{almond apple tart for jim} \index{apple!almond apple tart}
+\index{tart!almond apple}
+
+%almond apple tart for Jim from Simca's cuisine\\
+
+use a tart shell 10 inches in diameter and 1 in. deep\\
+\\
+spread bottom of tart shell with apricot jam.\\
+\\
+cream 4 egg yolks, 1/2 cup sugar, pinch of salt\\
+\\
+add 1/2 c pulverized almonds and 1/3 c raisins\\
+\\
+grate 2 large apples (about 1 1/2 cups loosely packed)\\
+it says rub apples with lemon first - not clear why\\
+\\
+stir into egg mixture and add 1/2 t cinnamon\\
+\\
+bake at 350 for 20 minutes\\
+\\
+remove from oven\\
+raise oven to 375\\
+\\
+prick tart with fork in several places\\
+pour over 4 T melted butter\\
+\\
+put back in oven and bake at 350 for 20 minutes more\\
+\\
+serve tepid\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{BAKED APPLES}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!baked apples} \index{baked apples}\index{apple!baked}
+
+you can use any kind of apple, but it's best with\\
+ones that hold their shape while cooking\\
+\\
+preheat oven to 350 degrees\\
+\\
+wash and core the apples and arrange in baking pan\\
+\\
+stuff the centers with a mix of:\\
+\hspace{0.5 in}	brown sugar\\
+\hspace{0.5 in}	cinnamon\\
+\hspace{0.5 in}	raisons\\
+\\
+be generous with the stuffing\\
+\\
+put a little butter on top of each apple\\
+\\
+put 2 T water in the pan\\
+\\
+put pan in oven and cook for about 45 minutes until tender\\
+\\
+serve warm with cream\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{APPLE CRISP}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!apple crisp} \index{apple crisp}
+
+combine:\\
+\hspace{0.5 in}	5-6 c apples (or use 2 c cranberries in place of some apples)\\
+\hspace{0.5 in}	1 T flour\\
+\hspace{0.5 in}	1/2 c sugar\\
+\hspace{0.5 in}	1 t cinnamon\\
+\hspace{0.5 in}	nutmeg\\
+\hspace{0.5 in}	ginger\\
+\hspace{0.5 in}	juice of 1/2 lemon\\
+\\
+put in buttered baking dish\\
+\\
+combine:\\
+\hspace{0.5 in}	1/4 c minus 1 T flour\\
+\hspace{0.5 in}	2 T brown sugar\\
+\hspace{0.5 in}	3/4 c oats\\
+\hspace{0.5 in}	1/2 c chopped walnuts or almonds\\
+\hspace{0.5 in}	3 T butter\\
+\\
+put on top\\
+\\
+bake 45 minutes at 375\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{APPLE TART}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!apple tart} \index{apple tart} \index{tart!apple}
+
+use a 9 inch cake pan with a removable bottom\\
+\\
+half-baked pastry shell\\
+\\
+peel, core and slice 1 lb apples, russets or golden delicious\\
+saute in 2 T butter until translucent\\
+sprinkle with cinnamon and mix\\
+\\
+combine:\\
+\hspace{0.5 in}1 egg\\
+\hspace{0.5 in}1/2 c sugar\\
+\hspace{0.5 in}1/4 c rum or brandy\\
+\hspace{0.5 in}1/2 c heavy cream\\
+\\
+put apples in shell\\
+pour sauce over\\
+\\
+cook at 375 about 30 minutes\\
+until set and golden\\
+\\
+serve warm\\
+\\
+to make the shell, prick the bottom of the crust, and make\\
+the sides overhang the pan.  Then cook at 500 for 5 minutes\\
+until slightly brown\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{DUTCH APPLE CAKE}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!dutch apple cake} \index{dutch apple cake}
+\index{apple!dutch apple cake}
+
+cream:\\
+\hspace{0.5 in}	1/4 cup soft butter\\
+\hspace{0.5 in}	1 cup sugar\\
+\\
+add 1 egg\\
+\\
+sift together:\\
+\hspace{0.5 in}	1 cup flour\\
+\hspace{0.5 in}	1 t cinnamon\\
+\hspace{0.5 in}	1/2 t baking powder\\
+\hspace{0.5 in}	1/2 t nutmeg\\
+\hspace{0.5 in}	1/2 t ginger\\
+\hspace{0.5 in}	1/4 t baking soda\\
+\hspace{0.5 in}	1/8 t salt\\
+\hspace{0.5 in}	1/8 t cloves\\
+\\
+add to mixture\\
+fold in 3 cups apples sliced 1/8th inch\\
+\\
+bake in buttered 9 inch pie pan\\
+1 hour at 350\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{BLUEBERRY CAKE (ROZ JACOBSON)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!blueberry cake (roz jacobson)} \index{blueberry cake}
+
+cream:\\
+\hspace{0.5 in} 	1/4 lb. butter\\
+\hspace{0.5 in} 	1 cup sugar\\
+\\
+add:\\
+\hspace{0.5 in} 	2 eggs\\
+\hspace{0.5 in} 	1/2 t vanilla\\
+\\
+add:\\
+\hspace{0.5 in} 	1/2 pt sour cream\\
+\\
+sift together and add:\\
+\hspace{0.5 in} 	2 c sifted flour\\
+\hspace{0.5 in} 	1 t baking powder\\
+\hspace{0.5 in} 	1 t baking soda\\
+\\
+stir in 1/2 pt blueberries\\
+\\
+pour into buttered and floured 8x8x3 pan\\
+\\
+bake at 350 for 45 minutes\\
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{CHEESE CAKE}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!cheese cake} \index{cheese cake}
+
+preheat oven to 375.  put in a pan of hot water.\\
+\\
+butter 9" spring form pan; sprinkle with 1/4 cup graham\\
+cracker crumbs mixed with 1/2 t cinnamon.\\
+shake out excess\\
+\\
+beat until soft 18 (or 19) oz cream cheese\\
+\\
+add:\\
+\hspace{0.5 in}	3 T flour\\
+\hspace{0.5 in}	3/4 c sugar\\
+\hspace{0.5 in}	(3 t poppy seeds)\\
+	\\
+beat until smooth\\
+\\
+beat 6 egg yolk until lemon colored\\
+combine with above\\
+\\
+stir in: \\
+\hspace{0.5 in}	1 c sour cream\\
+\hspace{0.5 in}	1 1/2 t vanilla\\
+\\
+beat 6 egg whites with a little salt until foamy\\
+add 1/2 t cream of tarter and beat until stiff\\
+gradually add 1/2 c sugar\\
+\\
+fold into mixture\\
+\\
+turn into pan and set over hot water\\
+\\
+cook 1 3/4 hours until firm in center\\
+turn off oven and leave for an hour\\
+loosen cake from sides but leave in pan until ready to serve\\
+\\
+sprinkle with powdered sugar\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{CHOCOLATE MOUSSE}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!chocolate mousse} \index{chocolate mousse}
+
+melt: \\
+\hspace{0.5 in}	4 oz. baker's sweet choc.\\
+\hspace{0.5 in}	2 T water\\
+\hspace{0.5 in}	1 t instant coffee\\
+\\
+in top of double boiler or microwave\\
+\\
+cool slightly\\
+\\
+stir in 3 egg yolks, one at a time\\
+\\
+beat 3 egg whites with a little salt until soft peaks\\
+add 3-4 T sugar and beat until stiff\\
+\\
+fold whites into choc.\\
+\\
+chill in fridge several hours or in freezer\\
+for 1.5 hours if in a hurry\\
+\\
+serve with whipped cream\\
+\\
+serves 3-4\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{POT AU CREME (SUE GRETHER)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!pot au creme (sue grether)} \index{pot au
+creme}\index{chocolate!pot au creme}
+
+melt:\\
+\hspace{0.5 in}	4 oz sweet choc\\
+\hspace{0.5 in}	1 oz semisweet\\
+\\
+(stir in 1/2 oz semisweet shaved)\\
+\\
+add 1 T sugar and stir until smooth\\
+cool\\
+\\
+combine and beat slightly:\\
+\hspace{0.5 in}	3 egg yolks\\
+\hspace{0.5 in}	1/2 c cream (half and half)\\
+\hspace{0.5 in}	1/2 t vanilla\\
+\\
+add slowly to cooled choc mixture, stirring well\\
+\\
+pour into small containers (e.g., demitasse cups)\\
+\\
+chill thoroughly\\
+\\
+serve with whipped cream\\
+\\
+serves 6\\
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{REINE DE SABA (JULIA CHILD)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!reine de saba (julia child)} \index{reine de saba}
+\index{chocolate!reine de saba}
+
+
+
+
+
+preheat oven to 350\\
+\\
+butter and flour 8 in. pan\\
+\\
+melt 4 oz semisweet choc with 2 T rum or coffee in microwave\\
+about one min. stir with knife\\
+\\
+cream 1 stick butter and 2/3 c sugar until pale yellow\\
+add 3 egg yolks\\
+\\
+beat 3 egg whites, pinch salt, add 1 T sugar to stiff peaks\\
+\\
+sift 3/4 c flour\\
+\\
+add choc to butter mix, then add 1/3 c pulverized almonds\\
+stir in 1/4 of egg whites\\
+then fold in 1/3 remaining egg whites\\
+then alternate flour and egg whites\\
+\\
+put in pan and push up around edges to top of pan\\
+\\
+bake in middle level for about 25 min.\\
+until skewer 1-2 in from edge comes out clean\\
+\\
+cool in pan 10 min.\\
+then reverse onto rack\\
+\\
+can dust with powdered sugar\\
+or frost:\\
+\\
+melt 1 oz semisweet choc with 1 T rum or coffee\\
+beat in 3 T unsalted butter 1 T at a time\\
+set over ice water and beat until cool and of spreading\\
+consistency\\
+\\
+ice cake\\
+decorate with sliced almonds\\
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{CREME CARAMEL (SUE GRETHER)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!creme caramel (sue grether)} \index{creme caramel}
+\index{flan}
+
+preheat oven to 325 and put in a pan of hot water\\
+\\
+scald 2 cups milk, cool (can be skim milk)\\
+\\
+melt 1/2 c sugar in cast iron frying pan\\
+coat 1 qt pyrex bowl\\
+\\
+whisk:\\
+\hspace{0.5 in}	3 egg yolks\\
+\hspace{0.5 in}	2 whole eggs\\
+\hspace{0.5 in}	1/4 c sugar\\
+\hspace{0.5 in}	nutmeg\\
+\hspace{0.5 in}	vanilla\\
+\\
+add scalded milk slowly, stirring constantly\\
+pour into bowl through a strainer\\
+\\
+place bowl in hot water\\
+cook about 45 minutes until knife close to edge comes out clean\\
+let cool at room temp and then refrigerate\\
+\\
+to unmold place bowl in hot water, and then turn\\
+upside down on plate\\
+\\
+serves 3-4\\
+\\
+for 4-6 uses 2 1/2 c milk, extra egg yolk and part of extra white,\\
+a little more sugar in mix and for coating\\
+still fits in 1 qt bowl\\
+takes longer to cook\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{FUDGE SAUCE (WILLA MAE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!fudge sauce (willa mae)} \index{fudge sauce}
+\index{chocolate!fudge sauce}
+
+
+
+
+combine in double boiler or over very low heat:\\
+\hspace{0.5 in}	7 oz unsweetened chocolate\\
+\hspace{0.5 in}	1 can condensed milk\\
+\hspace{0.5 in}	1 cube butter\\
+\hspace{0.5 in}	2 c sugar\\
+\hspace{0.5 in}	instant coffee\\
+\\
+melt slowly, mixing, until smooth and thickened\\
+(it should come close to boiling but shouldn't boil.\\
+when it thickens it is done.)\\
+\\
+cool and then beat in 1/2 t vanilla\\
+\hline
+
+\end{tabular}
+
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PASTRY SHELL (PATE BRISEE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!pastry shell (pate brisee)} \index{pastry shell}
+\index{pate brisee}
+
+
+
+
+combine:\\
+\hspace{0.5 in}	1 c flour\\
+\hspace{0.5 in}	2/3 cube unsalted butter (soft)\\
+\hspace{0.5 in}	pinch of salt\\
+\\
+with a knife until butter is mixed in and pieces are about\\
+the size of large peas\\
+\\
+add 2 T cold water to well in the center\\
+mix with a fork vigorously until it all clumps together\\
+\\
+make into a ball and knead 10-12 times\\
+\\
+wrap in plastic wrap and let rest at least 20 min.\\
+(can keep in fridge overnight, but then bring back\\
+to room temp)\\
+\\
+makes one 9-10 inch shell\\
+\\
+always butter the shell before putting in the rolled out \\
+crust.  press around bottom, and crimp the sides to make\\
+a nice pattern\\
+\\
+can also do this in cuisinart but it isn't quite as good:\\
+\hspace{0.5 in}	pulse butter and flower until pea-sized\\
+\hspace{0.5 in}	add water and pulse until mixed\\
+\\
+and then continue as above\\
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PEACH COBBLER (WILLA MAE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!peach cobbler (willa mae)} \index{peach cobbler}
+
+also can do blackberries\\
+\\
+combine:\\
+\hspace{0.5 in} 8 peaches peeled and sliced\\
+\hspace{0.5 in} 1 c sugar\\
+\hspace{0.5 in} 2 T brown sugar\\
+\hspace{0.5 in} 2 T flour\\
+\hspace{0.5 in} cinnamon\\
+\\
+let sit to draw juice\\
+add 1 t vanilla\\
+1/2 cube butter cut up on top (less)\\
+crust on top (or biscuits?)\\
+\\
+bake 1 hr at 350 until bubbles\\
+\\
+serve with ice cream\\
+\\
+for blackberries, use a bit more flour\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PEACH TART}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!peach tart} \index{peach tart} \index{tart!peach}
+
+line 9 inch pie pan with pastry\\
+\\
+slice 3-4 peaches (about 1/4 inch slices)\\
+put in pie shell\\
+\\
+combine:\\
+\hspace{0.5 in}	1 egg\\
+\hspace{0.5 in}	1 T flour\\
+\hspace{0.5 in}	2/3 - 1 cup sugar\\
+\hspace{0.5 in}	1/3 c melted butter\\
+\\
+pour over fruit\\
+\\
+cook at 400 15 min\\
+then at 300 about 50 min\\
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{CARAMEL PEARS}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!caramel pears} \index{caramel pears}
+\index{pear!caramel}
+
+cut 6 firm (bosc) pears into quarters\\
+core and peel\\
+\\
+arrange in buttered baking dish\\
+\\
+dot with 2 T butter\\
+sprinkle with 3/4 c sugar\\
+\\
+bake at 475 for 30 min until sugar turns dark brown\\
+baste frequently after sugar and butter have melted\\
+\\
+pour over 1 c cream and stir gently\\
+cook for 5 minutes more\\
+\\
+serve at once\\
+\\
+serves 6\\
+\\
+takes closer to 1 hour\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PEAR PIE (MICHELLE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!pear pie (michelle)} \index{pear pie} \index{pie!pear}
+
+line pie shell with pate brisee\\
+\\
+prick shell and bake at 500 degrees until golden\\
+(about 5 min)\\
+\\
+peal the pears and slice them thin\\
+arrange on crust in a nice pattern\\
+\\
+sprinkle with 1/2 c sugar\\
+\\
+cook 30-35 min at 450\\
+\\
+can use this approach with apples (but then\\
+use cinnamon too)\\
+\\
+can also use a custard (1 egg, 1/2 cup cream, 1/4 cup sugar),\\
+but then you should cook at 350\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PLUM TART}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!plum tart} \index{plum tart} \index{tart!plum}
+
+line 9 inch pie pan with pastry\\
+\\
+slice 24 plums into 4-6 pieces each\\
+(use italian prune plums)\\
+\\
+put in shell\\
+\\
+combine:\\
+\hspace{0.5 in}	1 egg\\
+\hspace{0.5 in}	1 T flour\\
+\hspace{0.5 in}	2/3 - 1 cup sugar\\
+\hspace{0.5 in}	1/3 c melted butter\\
+\hspace{0.5 in}	zest of 1 lemon\\
+\hspace{0.5 in}	1 T lemon juice\\
+\hspace{0.5 in}	cinnamon\\
+\\
+pour over fruit\\
+\\
+cook at 400 15 min\\
+then at 300 about 50 min\\
+
+
+\hline
+\end{tabular}
+
+\newpage
+
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{PLUM TORTE (ALICE JOHNSON)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!plum torte (alice johnson)} \index{plum torte}
+\index{torte!plum}
+
+preheat oven to 350\\
+\\
+cream together:\\
+\hspace{0.5 in}	1 c sugar\\
+\hspace{0.5 in}	1 stick unsalted butter\\
+\\
+combine and add:\\
+\hspace{0.5 in}	1 c flour\\
+\hspace{0.5 in}	1 t baking powder\\
+\hspace{0.5 in}	pinch of salt\\
+\\
+spoon batter into buttered 9 inch square or round pan\\
+smooth the surface\\
+\\
+arrange on top:\\
+\hspace{0.5 in}	24 halves of pitted purple plums, cut side down\\
+\hspace{0.5 in}	(italian prune plums)\\
+\\
+sprinkle lightly with:\\
+\hspace{0.5 in}	sugar to taste\\
+\hspace{0.5 in}	lemon juice to taste (e.g., 1/2 lemon)\\
+\hspace{0.5 in}	1 t or more cinnamon\\
+\\
+bake for 1 hour until middle is firm to a delicate touch.\\
+\\
+cool on a rack.\\
+\\
+serve warm or cold\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{AUNT HELEN'S FLUFFY PUMPKIN PIE (JULIA CHILD)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!aunt helen's fluffy pumpkin pie (julia child)}
+\index{aunt helen's fluffy pumpkin pie}
+\index{pumpkin pie!aunt helen's fluffy} \index{pie!pumpkin}
+
+for one 9 inch pie, lined with pate brisee\\
+\\
+blend:\\
+\hspace{0.5 in}	1 can pumpkin (1 3/4 c about)\\
+\hspace{0.5 in}	1/2 c brown sugar\\
+\hspace{0.5 in}	1/2 c white sugar\\
+\hspace{0.5 in}	1/2 t salt\\
+\hspace{0.5 in}	1 1/2 T bourbon or rum\\
+\hspace{0.5 in}	1 1/2 t cinnamon and ginger\\
+\hspace{0.5 in}	1/8 t nutmeg and cloves\\
+\hspace{0.5 in}	2 egg yolks\\
+\hspace{0.5 in}	1/2 c heavy cream\\
+\hspace{0.5 in}	3/8 c milk (or slightly more if mixture is stiff)\\
+\\
+beat 3 egg whites with a little salt until soft peaks\\
+gradually add 2 T sugar and beat until stiff peaks\\
+\\
+stir 1/4 egg whites into mixture and fold in the rest\\
+\\
+pour into pie shell\\
+\\
+bake at 450 for 15 minutes (until pastry is lightly colored)\\
+reduce to 375 for 15 minutes (or less if pastry gets too dark)\\
+reduce to 350 for 15 minutes\\
+\\
+done when skewer 2 inches from edge comes out clean\\
+\\
+turn off oven and leave in for 10-30 minutes with door ajar\\
+\\
+serve warm or cold with whipped cream or vanilla ice cream\\
+\\
+(if filling is watery, this means it cooked too fast)\\
+\\
+it took about 20 minutes longer than stated\\
+
+
+
+\hline
+
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{RASPBERRY FOOL (ALICE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!raspberry fool (alice)} \index{raspberry fool}
+
+
+puree raspberries (1 pt) with about 1/4 c sugar\\
+\\
+combine with about 3/4 c whipped cream\\
+\\
+let sit in fridge\\
+\\
+serve with cookies\\
+\\
+can do other fruit, e.g., mangos\\
+here maybe equal cream and fruit\\
+sugar to taste\\
+maybe three people for 2 mangos\\
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{RHUBARB}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!rhubarb} \index{rhubarb}
+
+
+wash 1 lb rhubarb and cut into 1 inch pieces\\
+\\
+place in pan over low heat\\
+cover pan and cook until juices come out\\
+\\
+combine 1/2 to 3/4 c sugar in 1/4 water\\
+pour this mix over the rhubarb and cook until\\
+it comes back to the boil, about 2 minutes\\
+\\
+can eat warm or chilled\\
+
+
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{RHUBARB CAKE}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!rhubarb cake} \index{rhubarb cake}
+
+combine:\\
+\hspace{0.5 in}	4 c rhubarb in 3/4 in slices\\
+\hspace{0.5 in}	3/4 c sugar\\
+\hspace{0.5 in}	cinnamon and nutmeg\\
+\\
+put into 9*9*2 pan\\
+\\
+cream together (in rhubarb bowl):\\
+\hspace{0.5 in}	1/2 c butter (I use 1/4-1/3)\\
+\hspace{0.5 in}	2/3 c sugar\\
+\\
+add 2 eggs\\
+\\
+add 1 t vanilla\\
+\\
+sift together:\\
+\hspace{0.5 in}	1 c flour\\
+\hspace{0.5 in}	1 t baking powder\\
+\hspace{0.5 in}	1/8 t salt\\
+\\
+add alternately the flour mixture and 1/3 c milk\\
+\\
+pour over rhubarb\\
+\\
+bake at 375 for 35 minutes or until top is golden\\
+\\
+serve warm with ice cream\\
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{RHUBARB PIE (GOURMET)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!rhubarb pie (gourmet)} \index{rhubarb pie}
+\index{pie!rhubarb}
+line 10 in. pie pan with pate brisee\\
+\\
+put into pie:\\
+\hspace{0.5 in} 6 c rhubarb in 1 in pieces (about 2 lb)\\
+	\\
+mix together:\\
+\hspace{0.5 in}	2 1/4 c sugar (less if sweet)\\
+\hspace{0.5 in}	6 T flour (one T per cup of rhubarb)\\
+\hspace{0.5 in}	1 1/2 T soft butter\\
+\hspace{0.5 in}	cinnamon, nutmeg, ginger\\
+\\
+add three beaten eggs\\
+\\
+pour over rhubarb\\
+\\
+cover with top crust or lattice\\
+\\
+cook at 450 for 10 minutes\\
+then at 350 for 40+ minutes\\
+\\
+serve with ice cream\\
+\\
+I use just a top crust\\
+\\
+Molly's pie is similar but:\\
+\hspace{0.5 in}	3 eggs\\
+\hspace{0.5 in}	2T melted butter\\
+\hspace{0.5 in}	1.5 c sugar\\
+\hspace{0.5 in}	1 T flour\\
+\hspace{0.5 in}	1 t vanilla\\
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{SOUFFLED LEMON-CUSTARD (HAMMERSLY'S BISTRO)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!souffled lemon-custard (hammersly's bistro)}
+\index{souffled lemon-custard} \index{lemon-custard!souffled}
+
+preheat oven to 350\\
+place large pan with water in oven\\
+\\
+cream 1/3 c unsalted butter with 1 c sugar until light\\
+and fluffy\\
+\\
+add 4 egg yolks, one at a time\\
+\\
+add: \\
+\hspace{0.5 in}	1/2 c sifted flour\\
+\hspace{0.5 in}	2/3 c lemon juice\\
+\hspace{0.5 in}	1/8 t lemon zest\\
+\hspace{0.5 in}	pinch salt\\
+\\
+beat until just combined\\
+\\
+add: \\
+\hspace{0.5 in}	1 1/3 c milk\\
+\hspace{0.5 in}	2/3 c heavy cream\\
+\hspace{0.5 in}	stir until smooth\\
+\\
+beat 4 egg whites to soft/medium peaks\\
+fold into lemon mixture\\
+\\
+place in greased 9 in sq baking pan\\
+place in large shallow pan filled with hot water\\
+bake 35-40 min until knife in center comes out clean\\
+350 oven\\
+\\
+let stand 10 minutes in water bath\\
+serve at room temp (or slightly warmer)\\
+
+\hline
+
+\end{tabular}
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{STRAWBERRY FOLDOVERS}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!strawberry foldovers} \index{strawberry foldovers}
+
+make white sauce with:\\
+\hspace{0.5 in}	1/4 c butter\\
+\hspace{0.5 in}	1/4 c flour\\
+\hspace{0.5 in}	1/4 t salt\\
+\hspace{0.5 in}	nutmeg\\
+\hspace{0.5 in}	1 c milk\\
+\\
+cool 15 min\\
+beat in 2 eggs, one at a time\\
+pour into buttered 9-10 in. cake pan lined with buttered waxed paper\\
+\\
+cook 35 min at 400 until golden and fluffy\\
+remove from pan\\
+\\
+sprinkle with powdered sugar\\
+cover with 1 c sliced sweetened strawberries\\
+fold over\\
+\\
+serve warm or cold, w/wo whipped cream\\
+slice into wedges\\
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+
+\centering
+
+\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
+				% <== enter \\ \hline as needed
+ 
+\multicolumn{1}{|c|}{\textbf{STRAWBERRY PIE (MICHELLE)}}
+\\
+\\
+%put recipe here with \\ ending each line
+
+\index{desserts!strawberry pie (michelle)} \index{strawberry pie}
+\index{pie!strawberry}
+
+Precook pate brisee at 500 for 5 minutes until light brown\\
+(in a 10 inch pie pan)\\
+\\
+slice strawberries in half lengthwise\\
+arrange in a spiral starting on the outside\\
+takes about 1 1/2 qts (or more)\\
+\\
+combine in saucepan:\\
+\hspace{0.5 in}	3/4 c powdered sugar\\
+\hspace{0.5 in}	3 mashed berries (or more)\\
+\hspace{0.5 in}	1/4 c water\\
+\\
+bring to a boil and simmer until clear\\
+(can add a little cornstarch to thicken)\\
+(can also add some strawberry jam)\\
+\\
+spoon this over the berries to make a glaze\\
+\\
+allow glaze to set for 1/2 hour\\
+\\
+can serve with whipped cream (but I usually don't)\\
+
+
+
+\hline
+
+\end{tabular}
+
+\newpage
+\input {./cookbook_endmatter.tex}
+\end{document}
