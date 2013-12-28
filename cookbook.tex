@@ -44,6 +44,7 @@
   
 \newcommand{\ingredsdone}{\end{ingreds}\begin{enumerate}}  
 \newcommand{\stepsdone}{\end{enumerate} \medskip}
+\newcommand{\nosteps}{\end{ingreds}\\}
 \newcommand{\notefont}{\renewcommand*\rmdefault{pzc}\normalfont\upshape \large}
 %\newcommand{\normalfont}{\renewcommand*\rmdefault{ppl}\normalfont\upshape}
 \newcommand{\ingredient}[3]{\hspace{\ingredmargin} & #1 & #2 & #3 \\}
@@ -307,9 +308,7 @@ Our normal dinner salads consist of mainly lettuce with thin slices of {\bf anis
 \ingredient{1}{T}{balsamic vinegar}
 \ingredient{3}{T}{olive oil}
 \ingredient{}{}{salt and pepper}
-\ingredsdone
-\item Whisk together
-\stepsdone
+\nosteps
 \noindent {\notefont I like this salad dressing a lot less than \reciperef{Lemon juice dressing} but it's my mother's favorite.  One advantage of it is that you can make up batches in jars and use in small quantities.  Her bring-to-work lunch for years was a lettuce salad with Balsamic vinaigrette over cottage cheese.}
 \end{recipe}
 
@@ -441,7 +440,7 @@ tomato optional, and replace the jalapeno and juice with a little bit of concent
 \ingredient{\fr12}{}{lemon (juice of)}
 \ingredient{3}{T}{olive oil}
 \ingredient{}{}{salt and pepper}
-\end{ingreds} 
+\nosteps
 \noindent {\notefont This is the salad dressing I would choose for a home-made green
 salad almost every time.  Don't take the shortcut - squeeze juice directly from a fresh lemon.}
 \end{recipe}
@@ -791,11 +790,14 @@ Without one, you'd have to puree in batches in a blender, and there would be a l
 \begin{recipe}{Einlauf soup}{10 mins.}{two servings}
 \index{soups!einlauf soup} \index{einlauf soup} \index{eggs!einlauf soup}
 \ingredient{2}{c}{chicken broth}
+\ingredient{1}{T}{flour}
 \ingredient{1-2}{}{eggs}
 \ingredient{}{}{sm. handful {\bf spinach leaves}}
 \ingredsdone
-\item Beat eggs with a little water.
-\item Bring broth to a boil then remove from heat.  Pour egg slowly into broth.  Add spinach leaves and stir.  
+\item Make a slurry, adding water to the flour and whisking vigorously.
+\item Beat eggs into slurry.
+\item Bring broth to a boil.  Add spinach leaves, and remove from heat.
+\item Once broth is no longer boiling, pour egg mixture into broth slowly while stirring.  
 \item Let sit for {\bf 2 minutes} then serve.
 \stepsdone
 \noindent {\notefont ``Einlauf'' means ``something warm inside you.''  This is a quick comforting soup we traditionally serve for someone who is sick.}
@@ -1624,7 +1626,7 @@ See also \reciperef{String bean salad}.
 \noindent {\notefont In retrospect, I'm surprised we had this as often as we did.  It's kind of a pain.. two stage cooking process, fair bit of prep.  But for whatever reason, it was one of our staple dinners when I was growing up.}
 \end{recipe}
 
-\begin{creditrecipe}{Tamale pie}{90 mins.}{serves 8+}{Jane or her mother}
+\begin{creditrecipe}{Tamale pie}{90 mins.}{serves 8+}{Hattie Dickoff}
 \index{casseroles!tamale pie} \index{tamale pie}
 \ingredient{2}{}{lg. onions, chopped}
 \ingredient{1}{c}{flour}
@@ -1668,7 +1670,7 @@ See also \reciperef{String bean salad}.
 %\newpage
 
 \begin{recipe}{Grilled Marinated Chicken}{50 min.}{serves 3}
-\index{chicken!grilled, w/ginger and paprika}
+\index{chicken!marinated}
 \ingredient{1}{pkg.}{chicken parts}
 \ingredient{1}{clove}{garlic, chopped}
 \ingredient{$\frac12$}{}{lemon, juice and zest of}
@@ -1681,120 +1683,33 @@ See also \reciperef{String bean salad}.
 \noindent \tip If you buy chicken in bulk, you can prepare bags of chicken parts with marinade and freeze them.  This cuts the cooking time down to just the 20-25 minutes of actual cooking.  Marinating for more than 20 minutes will intensify the flavor.\\
 \tip Marinate in a ziplok bag and try to squeeze as much of the air out as possible.  This way less marinade covers more chicken surface area.
 \end{recipe}
-\newpage
+%\newpage
 
-\centering
-
-\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
-				% <== enter \\ \hline as needed
- 
-\multicolumn{1}{|c|}{\bf ROAST CHICKEN}
-\\
-\\
-%put recipe here with \\ ending each line
-
-\index{fish/meat!roast chicken} \index{roast chicken}
+\begin{recipe}{Roast Chicken with Pan Gravy}{75 min.}{serves 4-5}
 \index{chicken!roast}
+\ingredient{1}{whole}{broiler chicken (approx 5 lbs)}
+\ingredient{}{}{tarragon}
+\ingredient{}{}{salt}
+\ingredient{}{}{carrots, celery, anise tops, lemon}
+\ingredient{}{}{pepper}
+\ingredient{2}{T}{flour}
+\ingredsdone
+\item Preheat oven to {\bf 500\F}
+\item Put anise tops, celery, and/or lemon into chicken cavity.  Sprinkle chicken all over with salt and dried tarragon
+\item Place chicken in roasting pan, on top of carrots.
+\item Roast for {\bf 20 minutes} at {\bf 500\F}, then {\bf 20 minutes} at {\bf 425\F}, then {\bf 20 minutes} at {\bf 375\F}.  Chicken is done when juices run clear.
+\item Remove chicken from oven and set aside.  Set roasting pan on stove top over medium heat.  Spoon off fat, deglaze with water and let simmer.
+\item Add water to flour to make a slurry.  Add to pan juices and mix thoroughly.  Let cook about {\bf 2 minutes}, then remove from heat and serve.
+\stepsdone
+\noindent \tip Placing the chicken breast-side down will produce juicier breast meat but drier dark meat.  Whichever side of the chicken is up will have the crispier skin.\\
+\\
+\tip Include neck, gizzard, heart in roasting pan for extra flavor in the gravy\\
+\\
+\tip Save the carcass in the freezer for broth-making later!
+\end{recipe}
 
-preheat oven to 500\\
-\\
-use a broiler of about 4 pounds (as big as you can find is fine)\\
-\\
-put onion or tops of anise or a lemon into\\
-chicken cavity, plus some salt\\
-\\
-coat outside of chicken with salt and tarragon\\
-\\
-place breast side down in pan\\
-\\
-cook at 500 for 20 minutes\\
-\\
-add carrots and onions to pan if desired at this point\\
-\\
-reduce heat to 425 and cook for 15 minutes\\
-\\
-reduce heat to 375 and cook for 15 minutes\\
-\\
-it should be done by now, but continue cooking until done\\
-(juices run clear)\\
-\\
-can make gravy if desired:\\
-\hspace{0.5 in}	degrease pan\\
-\hspace{0.5 in}	add water and cook\\
-\hspace{0.5 in}	combine flour and water\\
-\hspace{0.5 in}	whisk into pan while it is boiling\\
-\hspace{0.5 in}	add enough to thicken to right consistency\\
-\\
-(to combine flour and water:  put flour into a bowl; add water in\\
-a thin stream while whisking rapidly)\\
-\\
-can also use a roasting chicken.  In this case increase\\
-each time period by 5 minutes, and then keep cooking at\\
-the end until done.\\ \hline
-
-  \end{tabular}
 
 \newpage
-
-\centering
-
-\begin{tabular}{|l|} \hline	% <== enter |r|c|l|p{2in}| etc
-				% <== enter \\ \hline as needed
- 
-\multicolumn{1}{|c|}{\textbf{ROAST CHICKEN WITH CREAM (JULIA CHILD)}}
-\\
-\\
-%put recipe here with \\ ending each line
-
-\index{fish/meat!roast chicken with cream (julia child)} \index{roast
-chicken with cream} \index{chicken!roast with cream}
-
-cook the gizzard, peeled and minced, in 1 T butter with a little oil and then add:\\
-\hspace{0.5 in}	chopped heart\\
-\hspace{0.5 in}	chopped livers (1 to 4, better with more)\\
-\hspace{0.5 in}	1 T minced shallot or green onion\\
-\\
-cook until liver has stiffened but is still rosy inside.  combine in mixing bowl with:\\
-\hspace{0.5 in}	2 T cream cheese\\
-\hspace{0.5 in}	1 T softened butter\\
-\hspace{0.5 in}	2 T chopped parsely\\
-\hspace{0.5 in}	1/4 c dry bread crumbs\\
-\hspace{0.5 in}	tarragon or thyme\\
-\hspace{0.5 in}	salt and pepper\\
-\\
-use this mix to stuff a chicken. it's enough for a broiler (3-4 pounds)\\
-rub the chicken with butter.  then roast the chicken:\\
-\hspace{0.5 in}	start breast-side up at 425 for 15 minutes\\
-\hspace{0.5 in}	baste, turn to one side, and reduce oven to 350\\
-\hspace{0.5 in}	cook for 10-15 minutes\\
-\hspace{0.5 in}	baste and salt\\
-\hspace{0.5 in}	turn on other side and cook for 10-15 minutes\\
-\hspace{0.5 in}	baste and salt\\
-\hspace{0.5 in}	turn breast side up, baste\\
-\hspace{0.5 in}	cook until done (takes about 1 hour)\\
-\hspace{0.5 in}\hspace{0.5 in}(juice in thickest part of thigh runs yellow,\\
-\hspace{0.5 in}\hspace{0.5 in}drumstick is tender when pressed and moves in its socket)\\
-\\
-about 10 minutes before the chicken is done, remove all but\\
-one T of fat from the pan, and start basting with 2-3 T\\
-heavy cream every 3-4 minutes.  Takes 1 cup cream in all\\
-\\
-remove chicken to platter and salt lightly.  then cover and let it rest\\
-\\
-add 3 T chicken stock to the pan and boil rapidly, scraping up all the dripping\\
-just before serving, stir in 3-4 T of cream, and correct\\
-the seasoning, including a few drops of lemon juice\\
-\\
-for a roasting chicken, increase the stuffing amount a\\
-bit (extra crumbs and cream cheese), and cook a bit longer\\
-
-
-\hline
-
-\end{tabular}
-
-\newpage
-
 
 
 
